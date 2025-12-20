@@ -1,0 +1,45 @@
+:root {
+  /* Colors - Zwina Modern Theme (Warm/Playful/Modern) */
+  
+  /* Background: Warm Cream/Beige */
+  --background: #FDF6E3;
+  
+  /* Foreground: Dark Brown/Charcoal (Softer than black) */
+  --foreground: #4A3B32;
+  
+  /* Primary: Vibrant Pink/Red (from 'Z' and 'N') */
+  --primary: #E05263; 
+  --primary-foreground: #ffffff;
+
+  /* Secondary: Warm Yellow/Mustard (from 'W' and 'A') */
+  --secondary: #F7C548;
+  --secondary-foreground: #4A3B32;
+
+  /* Accent: Sky Blue (from the line) */
+  --accent: #5BC0EB;
+  --accent-foreground: #ffffff;
+
+  /* Muted: Darker Beige for subtle backgrounds */
+  --muted: #F5E6D3;
+  --muted-foreground: #7D6B5D;
+
+  /* Typography */
+  --font-sans: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', 'Times New Roman', serif;
+
+  /* Spacing */
+  --spacing-section: 6rem;
+  --spacing-element: 1.5rem;
+
+  /* Borders */
+  --radius-sm: 8px; /* Softer corners for the friendly vibe */
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Motion */
+  --motion-duration-fast: 300ms;
+  --motion-duration-normal: 500ms;
+  --motion-duration-slow: 800ms;
+  --motion-ease-default: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

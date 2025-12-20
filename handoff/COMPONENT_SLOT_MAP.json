@@ -1,0 +1,50 @@
+{
+  "home": {
+    "hero": {
+      "headline": "Empowering Communities & Inspiring Generations",
+      "subheadline": "From students to changemakers...",
+      "ctaPrimary": "Join Our Mission",
+      "ctaSecondary": "Support Our Projects"
+    },
+    "introValues": {
+      "title": "Who We Are",
+      "description": "Zwina Foundation began as...",
+      "items": [
+        { "title": "Youth-Led", "description": "Students and young professionals..." },
+        { "title": "Community-Driven", "description": "Local solutions..." },
+        { "title": "Global Impact", "description": "Grassroots action..." }
+      ]
+    },
+    "programHighlight": {
+      "title": "Be a Changemaker...",
+      "description": "The Zwina Challenge is...",
+      "features": [
+        "Mentorship...",
+        "Hands-on learning...",
+        "Access to support..."
+      ],
+      "cta": "Learn More"
+    },
+    "projectsGrid": {
+      "title": "Our Projects",
+      "items": [
+        { "country": "Morocco", "title": "Sewing...", "description": "..." },
+        { "country": "Bangladesh", "title": "Global...", "description": "..." }
+      ]
+    }
+  },
+  "shared": {
+    "header": {
+      "navLinks": ["Home", "About", "Projects", "Shop", "Contact"],
+      "cta": "Donate"
+    },
+    "footer": {
+      "description": "Empowering communities...",
+      "columns": [
+        { "title": "About", "links": ["Our Story", "Team", "Impact", "Partners"] },
+        { "title": "Projects", "links": ["Sewing Hope", "Upcoming", "Volunteer", "Donate"] },
+        { "title": "Connect", "links": ["Contact", "Shop", "Privacy", "Terms"] }
+      ]
+    }
+  }
+}

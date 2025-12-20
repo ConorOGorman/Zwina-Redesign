@@ -1,0 +1,100 @@
+import { Container } from "@/components/primitives/Container";
+import { Section } from "@/components/primitives/Section";
+import { Typography } from "@/components/primitives/Typography";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import React from "react";
+
+export const PartnersLogosSection: React.FC = () => {
+  const partners: Array<{
+    name: string;
+    logoSrc?: string;
+    logoContainerClassName?: string;
+    logoImageClassName?: string;
+    logoSizes?: string;
+    unoptimized?: boolean;
+  }> = [
+    { name: "Fondazione Ragione Sociale", logoSrc: "/Trusted%20Brands/fondazione.png" },
+    { name: "GoFundMe", logoSrc: "/Trusted%20Brands/idXhJFs9Dn_logos.svg" },
+    {
+      name: "The Hague University of Applied Sciences",
+      logoSrc: "/Trusted%20Brands/The_Hague_University_of_Applied_Sciences_Logo.svg",
+      // Keep this logo legible in a 4-across row.
+      logoContainerClassName: "h-16 w-full max-w-[380px] sm:max-w-[460px] md:h-20 md:max-w-[560px]",
+      logoImageClassName: "opacity-100",
+      logoSizes: "(min-width: 768px) 560px, (min-width: 640px) 460px, 380px",
+      // This SVG includes an XML prolog and can fail Next's image optimization; serve it as-is.
+      unoptimized: true,
+    },
+    { name: "High Atlas Foundation", logoSrc: "/Trusted%20Brands/high%20atlas%20foundation%20.png" },
+    { name: "KiCo Kitchen", logoSrc: "/Trusted%20Brands/KiCo-Logo.webp" },
+    { name: "College LaSalle Maroc", logoSrc: "/Trusted%20Brands/Logo_College-LaSalle-Maroc.svg" },
+    { name: "Bidyanondo Foundation", logoSrc: "/Trusted%20Brands/Bidyanondo.png" }
+  ];
+
+  const defaultLogoClassName = "object-contain transition-opacity opacity-70 hover:opacity-100";
+  const defaultLogoSizes = "(min-width: 1024px) 180px, (min-width: 640px) 200px, 40vw";
+
+  const topPartners = partners.slice(0, 4);
+  const bottomPartners = partners.slice(4);
+
+  return (
+    <Section className="border-t border-foreground/10">
+      <Container>
+        <Typography variant="caption" className="text-center mb-12 block text-muted-foreground">Trusted By</Typography>
+
+        <div className="mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 items-center justify-items-center gap-x-10 md:gap-x-16 gap-y-10">
+            {topPartners.map((partner) => (
+              <div
+                key={partner.name}
+                className="flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors cursor-default"
+              >
+                {partner.logoSrc ? (
+                  <div className={cn("relative h-8 w-[180px] max-w-[40vw]", partner.logoContainerClassName)}>
+                    <Image
+                      src={partner.logoSrc}
+                      alt={partner.name}
+                      fill
+                      sizes={partner.logoSizes ?? defaultLogoSizes}
+                      unoptimized={partner.unoptimized}
+                      className={cn(defaultLogoClassName, partner.logoImageClassName)}
+                    />
+                  </div>
+                ) : (
+                  <div className="text-sm uppercase tracking-widest">{partner.name}</div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {bottomPartners.length > 0 && (
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 items-center justify-items-center gap-x-10 md:gap-x-16 gap-y-10">
+              {bottomPartners.map((partner) => (
+                <div
+                  key={partner.name}
+                  className="flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors cursor-default"
+                >
+                  {partner.logoSrc ? (
+                    <div className={cn("relative h-8 w-[180px] max-w-[40vw]", partner.logoContainerClassName)}>
+                      <Image
+                        src={partner.logoSrc}
+                        alt={partner.name}
+                        fill
+                        sizes={partner.logoSizes ?? defaultLogoSizes}
+                        unoptimized={partner.unoptimized}
+                        className={cn(defaultLogoClassName, partner.logoImageClassName)}
+                      />
+                    </div>
+                  ) : (
+                    <div className="text-sm uppercase tracking-widest">{partner.name}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </Container>
+    </Section>
+  );
+};

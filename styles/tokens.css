@@ -1,0 +1,62 @@
+:root {
+  /* Background surfaces (3 types)
+     - Light blue: --background / --secondary
+     - White:      --surface
+     - Light yellow: --background-soft
+  */
+  --background: #fbfdff;
+  --background-soft: #fdf7f2;
+  --surface: #ffffff;
+  --foreground: #231f1c;
+  --foreground-muted: #4b4744;
+
+  /* Brand accents (match logo palette) */
+  --primary: #2e7da2;
+  --primary-foreground: #ffffff;
+
+  --accent: #2e7da2;
+  --accent-foreground: #ffffff;
+
+  /* Primary actions (buttons) */
+  --action: #2e7da2;
+  --action-hover: #2b779c;
+  --action-foreground: #ffffff;
+
+  /* Section backgrounds / subtle surfaces */
+  --secondary: #eaf4ff;
+  --secondary-foreground: #231f1c;
+
+  --color-pink: #e7a5b7;
+  --color-rust: #cf6b57;
+  --color-sky: #6fb5d6;
+  --color-plum: #b07a94;
+
+  /* Logo-only accents */
+  --logo-yellow: #f5c35c;
+  --logo-z: #d85a72;
+  --logo-n: #e48a3a;
+
+  --muted: #f3f6f9;
+  --muted-foreground: #4b4744;
+
+  /* Typography */
+  --font-sans: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', 'Times New Roman', serif;
+
+  /* Spacing */
+  --spacing-section: 6rem;
+  --spacing-element: 1.5rem;
+
+  /* Borders */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+  --radius-button: 10px;
+
+  /* Motion */
+  --motion-duration-fast: 200ms;
+  --motion-duration-normal: 450ms;
+  --motion-duration-slow: 900ms;
+  --motion-ease-default: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

@@ -1,0 +1,40 @@
+{
+  "reference_url_base": "https://zwinafoundation.org/",
+  "lang_path": "/",
+  "routes_in_scope": [
+    "/",
+    "/about",
+    "/projects",
+    "/shop",
+    "/donate",
+    "/contact",
+    "/impact",
+    "/partners",
+    "/volunteer",
+    "/privacy",
+    "/terms",
+    "/projects/zwina-challenge",
+    "/projects/morocco-sewing",
+    "/projects/bangladesh-english",
+    "/projects/sewing-hope",
+    "/projects/upcoming",
+    "/product/[id]"
+  ],
+  "repo_stack": {
+    "framework": "Next.js App Router",
+    "styling": "Tailwind + tokens",
+    "animation": "css|framer|gsap|mixed"
+  },
+  "component_slots_version": "v1",
+  "slot_map_path": "/handoff/COMPONENT_SLOT_MAP.json",
+  "layout_lock_path": "/handoff/LOCK_LAYOUT.md",
+  "animation_inventory_path": "/handoff/ANIMATION_INVENTORY.md",
+  "brand_token_surfaces_path": "/handoff/BRAND_TOKEN_SURFACES.md",
+  "injection_playbook_path": "/handoff/INJECTION_PLAYBOOK.md",
+  "recommended_injection_files": [
+    "/content/**",
+    "/styles/tokens.css",
+    "/components/sections/**",
+    "/components/primitives/**"
+  ]
+}

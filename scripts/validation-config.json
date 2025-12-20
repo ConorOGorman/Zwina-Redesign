@@ -1,0 +1,23 @@
+{
+  "viewports": {
+    "desktop": { "width": 1440, "height": 900 },
+    "laptop": { "width": 1280, "height": 800 },
+    "tablet": { "width": 834, "height": 1112 },
+    "mobile": { "width": 390, "height": 844 }
+  },
+  "routes": [
+    "/",
+    "/about",
+    "/projects",
+    "/shop",
+    "/donate",
+    "/contact",
+    "/impact",
+    "/partners",
+    "/volunteer",
+    "/privacy",
+    "/terms"
+  ],
+  "referenceBaseUrl": "https://zwinafoundation.org",
+  "buildBaseUrl": "http://localhost:3000"
+}
