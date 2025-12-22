@@ -1,16 +1,19 @@
 import { PageHeaderSection } from "@/components/sections/PageHeaderSection";
 import { ProjectsGridSection } from "@/components/sections/ProjectsGridSection";
-import { ProgramHighlightSection } from "@/components/sections/ProgramHighlightSection";
+import { NewsletterSection } from "@/components/sections/NewsletterSection";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export default function ProjectsPage() {
+  const locale = getLocale();
   return (
     <>
       <PageHeaderSection 
-        title="Our Projects" 
-        description="Discover how we are creating lasting impact through social entrepreneurship and education."
+        title={t(locale, "pages.projectsTitle")} 
+        description={t(locale, "pages.projectsDesc")}
       />
       <ProjectsGridSection variant="embedded" />
-      <ProgramHighlightSection />
+      <NewsletterSection />
     </>
   );
 }

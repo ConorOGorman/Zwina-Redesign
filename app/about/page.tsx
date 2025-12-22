@@ -1,40 +1,59 @@
 import Image from "next/image";
 import React from "react";
+import { BookOpen, MapPin } from "lucide-react";
 import { Container } from "@/components/primitives/Container";
 import { Section } from "@/components/primitives/Section";
 import { Typography } from "@/components/primitives/Typography";
 import { Button } from "@/components/primitives/Button";
 import { Link } from "@/components/primitives/Link";
 import { Reveal } from "@/components/primitives/Reveal";
-import { AnimatedTextReveal } from "@/components/primitives/AnimatedTextReveal";
+
+type Anchor = { label: string; href: string };
 
 export default function AboutPage() {
-  const onThisPage = [
-    { label: "At a glance", href: "#overview" },
+  const onThisPage: Anchor[] = [
+    { label: "Overview", href: "#overview" },
     { label: "Mission", href: "#mission" },
-    { label: "Our approach", href: "#approach" },
-    { label: "Values", href: "#values" },
-    { label: "Transparency", href: "#transparency" },
-    { label: "Featured project", href: "#featured-project" },
+    { label: "Approach", href: "#approach" },
     { label: "Team", href: "#team" },
   ];
 
-  const atAGlance = [
+	  const story = {
+	    title: "From Students to Changemakers",
+	    paragraphs: [
+	      "Zwina Foundation began as a group of students from across Europe, brought together by a shared desire to make a difference while studying in the Netherlands.",
+	      "With no funding, no experience, and no roadmap, we chose not to wait for the perfect moment. We simply started.",
+	    ],
+	    firstStepsTitle: "Our first steps were small but meaningful",
+	    firstSteps: [
+	      {
+	        location: "Morocco",
+	        bullets: ["Empowered women in remote villages.", "Provided tools and skills for economic independence."],
+	      },
+	      {
+	        location: "Bangladesh",
+	        bullets: ["Created access to English education.", "For orphaned children."],
+	      },
+	    ],
+	    missionLine:
+	      "Underlying everything is a simple belief: even the smallest actions, when rooted in community and driven by purpose, can create lasting change.",
+	  };
+
+  const howWeWork = [
     {
-      title: "Youth-led, Europe-based",
-      description: "A youth-led foundation driven by students and young professionals.",
+      step: "01",
+      title: "Co-design with communities",
+      description: "Community-led solutions shaped with local insight.",
     },
     {
-      title: "Where we work",
-      description: "Projects in Morocco and Bangladesh.",
+      step: "02",
+      title: "Train + equip",
+      description: "Practical skills and tools for economic independence.",
     },
     {
-      title: "Skills training + social business",
-      description: "Community-led skills training and sustainable livelihoods.",
-    },
-    {
-      title: "Low-cost, high-impact",
-      description: "Volunteer energy, built for long-term impact.",
+      step: "03",
+      title: "Launch sustainable social business models",
+      description: "Designed for self-sufficiency and long-term impact.",
     },
   ];
 
@@ -67,6 +86,13 @@ export default function AboutPage() {
     { title: "Transparency", description: "Clear, accountable use of resources and progress." },
     { title: "Sustainability", description: "Designed for long-term impact through self-sufficiency." },
     { title: "Youth-powered", description: "Students and young professionals driving community change." },
+  ];
+
+  const transparencyLinks = [
+    { href: "/donate", title: "Where funds go", description: "Support us and see how you can help." },
+    { href: "/impact", title: "Annual report / updates", description: "Follow progress across our projects and communities." },
+    { href: "/privacy", title: "Policies", description: "Privacy Policy and Terms of Service." },
+    { href: "/terms", title: "Terms of Service", description: "Review site terms and usage information." },
   ];
 
   const team = [
@@ -128,46 +154,45 @@ export default function AboutPage() {
     },
   ];
 
+  const featuredProjectBullets = [
+    "Community-led skills training designed with local insight.",
+    "Tools and practical pathways toward sustainable income.",
+    "Designed for social businesses and self-sufficiency.",
+    "Led by local youth who understand their communities' needs.",
+  ];
+
+  const featuredTeam = team.slice(0, 6);
+  const moreTeam = team.slice(6);
+
   return (
     <>
-      {/* 1) Hero: One sentence + two primary actions */}
       <Section
         spacing="none"
-        className="relative overflow-hidden bg-secondary pt-[93px] pb-16 lg:pt-[109px] lg:pb-20 border-b border-black/5"
+        className="relative overflow-hidden bg-secondary pt-[93px] pb-12 lg:pt-[109px] lg:pb-14 border-b border-foreground/10"
       >
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-7">
-              <Reveal as="div" delay={0.02} duration={0.85} y={18}>
-                <Typography variant="caption" className="text-accent mb-6 block font-medium tracking-widest">
-                  About
-                </Typography>
-                <Typography variant="h1" className="mb-5 text-balance">
-                  About Zwina Foundation
-                </Typography>
-              </Reveal>
-              <AnimatedTextReveal
-                as="p"
-                text="A youth-led foundation empowering rural women through community-led skills training and social business."
-                className="font-sans text-base md:text-lg leading-relaxed text-foreground max-w-[62ch] mb-10"
-                stagger={0.018}
-                duration={0.75}
-                delay={0.05}
-              />
+	              <Reveal as="div" delay={0.02} y={16}>
+	                <Typography variant="caption" className="text-accent mb-6 block font-medium tracking-widest">
+	                  About
+	                </Typography>
+	                <Typography variant="h1" className="mb-5 text-balance">
+	                  About Zwina Foundation
+	                </Typography>
+                <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
+	                  A youth-led foundation empowering rural women through community-led skills training and social business.
+	                </Typography>
+	              </Reveal>
 
-              <Reveal as="div" delay={0.18}>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <Button variant="primary" size="lg" asChild effect="sweep">
+              <Reveal as="div" delay={0.14}>
+                <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Button variant="primary" size="lg" asChild effect="none" className="shadow-none">
                     <Link href="/donate" className="no-underline">
                       Donate
                     </Link>
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    asChild
-                    className="border-foreground/20 hover:bg-foreground/5"
-                  >
+                  <Button variant="outline" size="lg" asChild effect="none" className="shadow-none">
                     <Link href="/volunteer" className="no-underline">
                       Get involved
                     </Link>
@@ -177,23 +202,24 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <Reveal as="div" delay={0.12} y={14}>
-                <div className="relative aspect-[4/3] overflow-hidden bg-secondary group">
-                  <Image
-                    src="/images/projects/Morocco/morocco-community-1.png"
-                    alt="Zwina Foundation community work in Morocco"
-                    fill
-                    sizes="(min-width: 1024px) 480px, 100vw"
-                    className="object-cover transition-transform duration-slow ease-default group-hover:scale-[1.03]"
-                    priority
-                  />
+              <Reveal as="div" delay={0.08} y={12}>
+                <div>
+                  <div className="relative aspect-[4/3] bg-secondary overflow-hidden border border-foreground/10">
+                    <Image
+                      src="/images/projects/Morocco/morocco-community-1.png"
+                      alt="Zwina Foundation community work in Morocco"
+                      fill
+                      sizes="(min-width: 1024px) 480px, 100vw"
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
                 </div>
               </Reveal>
             </div>
           </div>
 
-          {/* Navigation improvement: On this page anchor bar */}
-          <Reveal as="div" delay={0.24}>
+          <Reveal as="div" delay={0.18}>
             <div className="mt-10 pt-6 border-t border-foreground/10">
               <div className="flex items-center gap-3">
                 <Typography variant="caption" className="text-muted-foreground whitespace-nowrap">
@@ -202,12 +228,13 @@ export default function AboutPage() {
                 <div className="h-px flex-1 bg-foreground/10" />
               </div>
               <nav className="mt-3 overflow-x-auto">
-                <div className="flex gap-2 min-w-max">
+                <div className="flex gap-2 min-w-max pb-1">
                   {onThisPage.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="text-xs uppercase tracking-widest px-3 py-2 bg-background/70 border border-foreground/10 hover:border-foreground/20 hover:bg-background transition-colors backdrop-blur"
+                      className="inline-flex items-center rounded-[var(--radius-button)] border border-foreground/10 bg-background/70 px-3 py-2 text-xs uppercase tracking-widest text-foreground/80 transition-colors hover:border-foreground/20 hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary motion-reduce:transition-none"
+                      variant="default"
                     >
                       {item.label}
                     </Link>
@@ -219,470 +246,274 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* 2) Overview: At-a-glance + Mission & model + Approach + Values + Transparency */}
-      <Section spacing="lg" className="border-b border-black/5" id="overview">
-        <Container>
-          <div className="scroll-mt-32">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-              <div className="lg:col-span-4">
-                <Reveal as="div" delay={0.02}>
-                  <Typography variant="caption" className="text-muted-foreground">
-                    Overview
-                  </Typography>
-                  <Typography variant="h2" className="mt-3 mb-3">
-                    Mission, model, and proof.
-                  </Typography>
-                  <Typography variant="body" className="text-muted-foreground max-w-[44ch]">
-                    A single scan-friendly section: key facts, how we work, what we value, and where to verify it.
-                  </Typography>
+	        <Section id="overview" className="border-t border-foreground/10 scroll-mt-32" spacing="lg">
+	          <Container>
+	            <Reveal as="div" delay={0.02}>
+	              <div className="mx-auto max-w-6xl text-left">
+	                <Typography variant="caption" className="text-accent mb-4 block">
+	                  Overview
+	                </Typography>
+	                <Typography variant="h2" className="mb-4">
+	                  What we do, where we work, and why it matters.
+	                </Typography>
+	                <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
+	                  Clear essentials first: a short story, a clear mission, and a practical model you can verify.
+	                </Typography>
+	              </div>
+	            </Reveal>
+
+		            <Reveal as="div" delay={0.06} y={12}>
+		              <article className="mt-12 mx-auto max-w-6xl">
+		                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+		                  <div className="lg:col-span-5">
+		                    <Typography variant="h3" className="m-0">
+		                      {story.title}
+	                    </Typography>
+	                  </div>
+
+		                  <div className="lg:col-span-7">
+		                    <Typography
+		                      as="p"
+		                      variant="body"
+		                      className="text-foreground max-w-[70ch]"
+		                    >
+		                      <span className="text-foreground">{story.paragraphs[0]} </span>
+		                      <span className="text-foreground/55">{story.paragraphs[1]}</span>
+		                    </Typography>
+		                  </div>
+		                </div>
+
+	                <div className="mt-14 border-t border-foreground/10 pt-12">
+	                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 mx-auto max-w-6xl">
+	                    <div>
+	                      <div className="h-12 w-12 rounded-full border border-foreground/10 bg-background flex items-center justify-center mb-6">
+	                        <MapPin className="h-5 w-5 text-foreground/70" aria-hidden="true" />
+	                      </div>
+		                      <Typography variant="h5" className="m-0">
+		                        In Morocco
+		                      </Typography>
+		                      <Typography variant="body-sm" className="text-muted-foreground mt-3 max-w-[56ch]">
+		                        {story.firstStepsTitle}
+		                      </Typography>
+		                      <ul className="mt-6 space-y-3">
+	                        {story.firstSteps
+	                          .find((s) => s.location === "Morocco")
+	                          ?.bullets.map((bullet) => (
+	                            <li key={bullet} className="flex gap-3">
+	                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
+	                              <Typography variant="body-sm" className="text-muted-foreground m-0">
+	                                {bullet}
+	                              </Typography>
+	                            </li>
+	                          ))}
+	                      </ul>
+	                    </div>
+
+	                    <div>
+	                      <div className="h-12 w-12 rounded-full border border-foreground/10 bg-background flex items-center justify-center mb-6">
+	                        <BookOpen className="h-5 w-5 text-foreground/70" aria-hidden="true" />
+	                      </div>
+		                      <Typography variant="h5" className="m-0">
+		                        In Bangladesh
+		                      </Typography>
+		                      <Typography variant="body-sm" className="text-muted-foreground mt-3 max-w-[56ch]">
+		                        {story.firstStepsTitle}
+		                      </Typography>
+		                      <ul className="mt-6 space-y-3">
+	                        {story.firstSteps
+	                          .find((s) => s.location === "Bangladesh")
+	                          ?.bullets.map((bullet) => (
+	                            <li key={bullet} className="flex gap-3">
+	                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
+	                              <Typography variant="body-sm" className="text-muted-foreground m-0">
+	                                {bullet}
+	                              </Typography>
+	                            </li>
+	                          ))}
+	                      </ul>
+	                    </div>
+	                  </div>
+	                </div>
+	              </article>
+	            </Reveal>
+	          </Container>
+	        </Section>
+
+	      <Section id="mission" className="border-t border-foreground/10 scroll-mt-32 bg-background-soft" spacing="lg">
+	        <Container>
+	          <Reveal as="div" delay={0.02}>
+	            <div className="mx-auto max-w-6xl text-left">
+	              <Typography variant="caption" className="text-accent mb-4 block">
+	                Mission
+	              </Typography>
+	              <Typography variant="h2" className="mb-4">
+	                Mission and model
+	              </Typography>
+		              <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
+		                {story.missionLine}
+		              </Typography>
+	            </div>
+	          </Reveal>
+
+          <Reveal as="div" delay={0.06} y={12}>
+            <div className="mt-10 mx-auto max-w-6xl">
+              <div className="flex items-center gap-3 mb-6">
+                <Typography variant="caption" className="text-muted-foreground m-0">
+                  Model
+                </Typography>
+                <div className="h-px flex-1 bg-foreground/10" />
+              </div>
+
+              <ol className="space-y-8">
+                {howWeWork.map((step, idx) => (
+                  <li key={step.step}>
+                    <Reveal as="div" delay={0.02 + idx * 0.04} y={10}>
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start py-3">
+                        <div className="md:col-span-2">
+                          <Typography variant="h3" className="text-accent">
+                            {step.step}
+                          </Typography>
+                        </div>
+	                        <div className="md:col-span-10">
+	                          <Typography variant="h4" className="mb-2">
+	                            {step.title}
+	                          </Typography>
+		                          <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
+		                            {step.description}
+		                          </Typography>
+	                        </div>
+                      </div>
+                    </Reveal>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </Reveal>
+        </Container>
+      </Section>
+
+	      <Section id="approach" className="border-t border-foreground/10 scroll-mt-32" spacing="lg">
+	        <Container>
+	          <Reveal as="div" delay={0.02}>
+	            <div className="mx-auto max-w-6xl text-left">
+	              <Typography variant="caption" className="text-accent mb-4 block">
+	                Approach
+	              </Typography>
+	              <Typography variant="h2" className="mb-4">
+	                The principles we build with.
+	              </Typography>
+		              <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
+		                A practical framework that keeps projects accountable, community-led, and sustainable.
+		              </Typography>
+	            </div>
+	          </Reveal>
+
+          <div className="mt-12 mx-auto max-w-6xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+              {approach.map((item, idx) => (
+                <Reveal key={item.title} as="div" delay={0.04 + idx * 0.04} y={10}>
+	                  <div className="border-t border-foreground/10 pt-6">
+	                    <Typography variant="h4" className="mb-2">
+	                      {item.title}
+	                    </Typography>
+		                    <Typography variant="body" className="text-muted-foreground m-0">
+		                      {item.description}
+		                    </Typography>
+	                  </div>
                 </Reveal>
-              </div>
-
-              <div className="lg:col-span-8">
-                {/* At a glance */}
-                <div>
-                  <div className="flex items-end justify-between gap-6 flex-wrap mb-5">
-                    <Reveal as="div" delay={0.02}>
-                      <Typography variant="h3" className="mb-2">
-                        At a glance
-                      </Typography>
-                      <Typography variant="body-sm" className="text-muted-foreground max-w-[62ch]">
-                        Tight highlights so you can orient quickly.
-                      </Typography>
-                    </Reveal>
-                  </div>
-
-                  <dl className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
-                    {atAGlance.map((card, index) => (
-                      <Reveal key={card.title} as="div" delay={0.04 + index * 0.05}>
-                        <div className="border-t border-foreground/10 pt-4">
-                          <dt>
-                            <Typography variant="h5" className="m-0">
-                              {card.title}
-                            </Typography>
-                          </dt>
-                          <dd className="mt-2">
-                            <Typography variant="body-sm" className="text-muted-foreground m-0">
-                              {card.description}
-                            </Typography>
-                          </dd>
-                        </div>
-                      </Reveal>
-                    ))}
-                  </dl>
-                </div>
-
-                {/* Mission & model */}
-                <div className="mt-12" id="mission">
-                  <div className="scroll-mt-32">
-                    <Reveal as="div" delay={0.02}>
-                      <div className="flex items-center gap-3 mb-4">
-                        <Typography variant="h3" className="m-0">
-                          Mission & model
-                        </Typography>
-                        <div className="h-px flex-1 bg-foreground/10" />
-                      </div>
-                      <Typography variant="body-sm" className="text-muted-foreground max-w-[70ch]">
-                        Clear mission, clear model—then the supporting proof.
-                      </Typography>
-                    </Reveal>
-                  </div>
-
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-6">
-                    <div className="lg:col-span-5">
-                      <Reveal as="div" delay={0.03}>
-                        <div className="bg-surface border border-foreground/10 p-7">
-                          <Typography variant="caption" className="text-accent block mb-3">
-                            Mission
-                          </Typography>
-                          <AnimatedTextReveal
-                            as="p"
-                            text="Underlying everything is a simple belief: even the smallest actions, when rooted in community and driven by purpose, can create lasting change."
-                            className="font-sans text-base md:text-lg leading-relaxed text-muted-foreground"
-                            stagger={0.012}
-                            duration={0.7}
-                            delay={0.02}
-                          />
-                        </div>
-                      </Reveal>
-                    </div>
-
-                    <div className="lg:col-span-7">
-                      <Reveal as="div" delay={0.06}>
-                        <div className="bg-background border border-foreground/10 p-7">
-                          <Typography variant="caption" className="text-accent block mb-3">
-                            From Students to Changemakers
-                          </Typography>
-                          <div className="space-y-4">
-                            <Typography variant="body" className="text-muted-foreground">
-                              Zwina Foundation began as a group of students from across Europe, brought together by a shared desire to make a difference while studying in the Netherlands.
-                            </Typography>
-                            <Typography variant="body" className="text-muted-foreground">
-                              With no funding, no experience, and no roadmap, we chose not to wait for the perfect moment. We simply started.
-                            </Typography>
-                          </div>
-
-                          <Typography variant="h6" className="mt-8 mb-4">
-                            Our first steps were small but meaningful
-                          </Typography>
-                          <ul className="space-y-3">
-                            <li className="flex gap-3">
-                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
-                              <Typography variant="body-sm" className="text-muted-foreground m-0">
-                                In Morocco, we empowered women in remote villages with tools and skills for economic independence.
-                              </Typography>
-                            </li>
-                            <li className="flex gap-3">
-                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
-                              <Typography variant="body-sm" className="text-muted-foreground m-0">
-                                In Bangladesh, we created access to English education for orphaned children.
-                              </Typography>
-                            </li>
-                          </ul>
-                        </div>
-                      </Reveal>
-                    </div>
-                  </div>
-
-                  {/* How we work */}
-                  <div className="mt-10" id="how-we-work">
-                    <div className="scroll-mt-32">
-                      <Reveal as="div" delay={0.02}>
-                        <Typography variant="caption" className="text-muted-foreground mb-3">
-                          How we work
-                        </Typography>
-                      </Reveal>
-                    </div>
-
-                    <ol className="space-y-5">
-                      {[
-                        {
-                          step: "01",
-                          title: "Co-design with communities",
-                          description: "Community-led solutions shaped with local insight.",
-                        },
-                        {
-                          step: "02",
-                          title: "Train + equip",
-                          description: "Practical skills and tools for economic independence.",
-                        },
-                        {
-                          step: "03",
-                          title: "Launch sustainable social business models",
-                          description: "Designed for self-sufficiency and long-term impact.",
-                        },
-                      ].map((item, index) => (
-                        <Reveal key={item.step} as="li" delay={0.04 + index * 0.06}>
-                          <div className="flex gap-4 border-t border-foreground/10 pt-5">
-                            <Typography variant="caption" className="text-accent w-16 shrink-0">
-                              Step {item.step}
-                            </Typography>
-                            <div className="min-w-0">
-                              <Typography variant="h5" className="mb-1">
-                                {item.title}
-                              </Typography>
-                              <Typography variant="body-sm" className="text-muted-foreground m-0">
-                                {item.description}
-                              </Typography>
-                            </div>
-                          </div>
-                        </Reveal>
-                      ))}
-                    </ol>
-                  </div>
-                </div>
-
-                {/* Our Approach */}
-                <div className="mt-12" id="approach">
-                  <div className="scroll-mt-32">
-                    <Reveal as="div" delay={0.02}>
-                      <div className="flex items-center gap-3 mb-4">
-                        <Typography variant="h3" className="m-0">
-                          Our Approach
-                        </Typography>
-                        <div className="h-px flex-1 bg-foreground/10" />
-                      </div>
-                    </Reveal>
-                  </div>
-
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-                    {approach.map((item, index) => (
-                      <Reveal key={item.title} as="li" delay={0.04 + index * 0.03}>
-                        <div className="flex gap-3">
-                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" aria-hidden="true" />
-                          <div>
-                            <Typography variant="h5" className="mb-1">
-                              {item.title}
-                            </Typography>
-                            <Typography variant="body-sm" className="text-muted-foreground m-0">
-                              {item.description}
-                            </Typography>
-                          </div>
-                        </div>
-                      </Reveal>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Values */}
-                <div className="mt-12" id="values">
-                  <div className="scroll-mt-32">
-                    <Reveal as="div" delay={0.02}>
-                      <div className="flex items-center gap-3 mb-4">
-                        <Typography variant="h3" className="m-0">
-                          Values
-                        </Typography>
-                        <div className="h-px flex-1 bg-foreground/10" />
-                      </div>
-                      <Typography variant="body-sm" className="text-muted-foreground max-w-[70ch]">
-                        Five principles that keep our work community-led and accountable.
-                      </Typography>
-                    </Reveal>
-                  </div>
-
-                  <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-                    {values.map((value, index) => (
-                      <Reveal key={value.title} as="li" delay={0.03 + index * 0.03}>
-                        <div className="flex gap-3">
-                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" aria-hidden="true" />
-                          <div>
-                            <Typography variant="h5" className="mb-1">
-                              {value.title}
-                            </Typography>
-                            <Typography variant="body-sm" className="text-muted-foreground m-0">
-                              {value.description}
-                            </Typography>
-                          </div>
-                        </div>
-                      </Reveal>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Transparency */}
-                <div className="mt-12" id="transparency">
-                  <div className="scroll-mt-32">
-                    <Reveal as="div" delay={0.02}>
-                      <div className="flex items-center gap-3 mb-4">
-                        <Typography variant="h3" className="m-0">
-                          Transparency
-                        </Typography>
-                        <div className="h-px flex-1 bg-foreground/10" />
-                      </div>
-                      <Typography variant="body-sm" className="text-muted-foreground max-w-[62ch]">
-                        Clear links so it never feels like a black box.
-                      </Typography>
-                    </Reveal>
-                  </div>
-
-                  <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-                    {[
-                      {
-                        href: "/donate",
-                        title: "Where funds go",
-                        description: "Support Us and see how you can help.",
-                      },
-                      {
-                        href: "/impact",
-                        title: "Annual report / updates",
-                        description: "Follow progress across our projects and communities.",
-                      },
-                      {
-                        href: "/privacy",
-                        title: "Policies",
-                        description: "Privacy Policy and Terms of Service.",
-                      },
-                      {
-                        href: "/terms",
-                        title: "Terms of Service",
-                        description: "Review site terms and usage information.",
-                      },
-                    ].map((card, index) => (
-                      <Reveal key={card.href} as="div" delay={0.05 + index * 0.03}>
-                        <div className="border-t border-foreground/10 pt-4">
-                          <Link href={card.href} variant="underline" className="text-sm">
-                            {card.title}
-                          </Link>
-                          <Typography variant="body-sm" className="text-muted-foreground mt-2 m-0">
-                            {card.description}
-                          </Typography>
-                        </div>
-                      </Reveal>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* 5) Proof of work (featured project) */}
-      <Section className="border-t border-black/5" spacing="lg" id="featured-project">
-        <Container>
-          <div className="scroll-mt-32">
-            <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
-              <div>
-                <Reveal as="div">
-                  <Typography variant="h2" className="mb-3">
-                    Proof of work
-                  </Typography>
-                  <Typography variant="body-sm" className="text-muted-foreground max-w-[62ch]">
-                    One featured initiative, then explore the full project library.
-                  </Typography>
-                </Reveal>
-              </div>
+      
+
+	      <Section id="team" className="border-t border-foreground/10 scroll-mt-32" spacing="lg">
+	        <Container>
+	          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 items-end">
+	            <div className="lg:col-span-6">
+	              <Reveal as="div" delay={0.02} y={12}>
+                <Typography variant="caption" className="text-accent mb-4 block">
+                  Team
+                </Typography>
+	                <Typography variant="h2" className="mb-4">
+	                  Meet our team
+	                </Typography>
+		                <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
+		                  The passionate change-makers behind Zwina Foundation.
+		                </Typography>
+	              </Reveal>
+	            </div>
+            <div className="lg:col-span-6 lg:flex lg:justify-end">
               <Reveal as="div" delay={0.08}>
-                <Button variant="outline" asChild>
-                  <Link href="/projects" className="no-underline">
-                    Explore all projects
+                <Button variant="outline" asChild effect="none" className="shadow-none w-full lg:w-auto">
+                  <Link href="/contact" className="no-underline">
+                    Contact us
                   </Link>
                 </Button>
               </Reveal>
             </div>
-
-            <Reveal as="div" delay={0.06}>
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 border border-foreground/10 bg-surface">
-              <div className="lg:col-span-5">
-                <div className="relative h-full min-h-[240px] lg:min-h-[340px] overflow-hidden bg-secondary group">
-                  <Image
-                    src="/images/projects/Morocco/morocco-workshop-1.png"
-                    alt="Women participating in a sewing workshop in Talat'N Minoun, Morocco"
-                    fill
-                    sizes="(min-width: 1024px) 420px, 100vw"
-                    className="object-cover transition-transform duration-slow ease-default group-hover:scale-[1.03]"
-                  />
-                </div>
-              </div>
-              <div className="lg:col-span-7 p-8 md:p-10">
-                <Typography variant="caption" className="text-accent">
-                  Featured initiative
-                </Typography>
-                <Typography variant="h3" className="mt-3 mb-5">
-                  Morocco — Sewing & Social Business
-                </Typography>
-                <Typography variant="body" className="text-muted-foreground mb-8 max-w-[70ch]">
-                  In Morocco, we empowered women in remote villages with tools and skills for economic independence.
-                </Typography>
-
-                <ul className="space-y-3 mb-10">
-                  <li className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
-                    <Typography variant="body-sm" className="text-muted-foreground">
-                      Community-led skills training designed with local insight.
-                    </Typography>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
-                    <Typography variant="body-sm" className="text-muted-foreground">
-                      Tools and practical pathways toward sustainable income.
-                    </Typography>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
-                    <Typography variant="body-sm" className="text-muted-foreground">
-                      Designed for social businesses and self-sufficiency.
-                    </Typography>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
-                    <Typography variant="body-sm" className="text-muted-foreground">
-                      Led by local youth who understand their communities&apos; needs.
-                    </Typography>
-                  </li>
-                </ul>
-
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button variant="primary" asChild>
-                    <Link href="/projects/sewing-hope" className="no-underline">
-                      See project
-                    </Link>
-                  </Button>
-                  <Button variant="ghost" asChild>
-                    <Link href="/projects" className="no-underline">
-                      See our impact <span aria-hidden="true" className="ml-2">→</span>
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-              </div>
-            </Reveal>
           </div>
-        </Container>
-      </Section>
 
-      {/* 6) Team */}
-      <Section className="border-t border-black/5" spacing="lg" id="team">
-        <Container>
-          <div className="scroll-mt-32">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10">
-              <div className="lg:col-span-4">
-                <Reveal as="div">
-                  <Typography variant="h2" className="mb-3">
-                    Meet Our Team
-                  </Typography>
-                  <Typography variant="body-sm" className="text-muted-foreground">
-                    The passionate change-makers behind Zwina Foundation.
-                  </Typography>
-                </Reveal>
-              </div>
-              <div className="lg:col-span-8">
-                <Reveal as="div" delay={0.06}>
-                  <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
-                    We’re a youth-led, Europe-based non-profit empowering rural women in developing countries.
-                  </Typography>
-                </Reveal>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground/10 border border-foreground/10">
-              {team.map((person, index) => (
-                <Reveal key={person.name} as="div" delay={0.03 + index * 0.04}>
-                  <div className="bg-background p-6 hover:bg-secondary transition-colors">
-                    <div className="flex items-start gap-4">
-                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-secondary border border-foreground/10">
-                        <Image
-                          src={person.imageSrc}
-                          alt={person.name}
-                          width={64}
-                          height={64}
-                          className="h-16 w-16 object-cover"
-                        />
-                      </div>
-
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-baseline gap-3 mb-1">
-                          <Typography variant="h5" className="m-0">
-                            {person.name}
-                          </Typography>
-                          <span className="h-px flex-1 bg-foreground/10" />
-                        </div>
-                        <Typography variant="caption" className="text-accent block">
-                          {person.role}
-                        </Typography>
-                        <Typography variant="body-sm" className="text-muted-foreground mt-2">
-                          {person.location}
-                        </Typography>
-                      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredTeam.map((person, idx) => (
+              <Reveal key={person.name} as="div" delay={0.03 + idx * 0.04} y={10}>
+                <div className="h-full border-t border-foreground/10 pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-secondary border border-foreground/10">
+                      <Image src={person.imageSrc} alt={person.name} width={56} height={56} className="h-14 w-14 object-cover" />
                     </div>
-
-                    <Typography variant="body-sm" className="text-muted-foreground mt-4">
-                      {person.bio}
-                    </Typography>
+                    <div className="min-w-0">
+                      <Typography variant="h6" className="m-0">
+                        {person.name}
+                      </Typography>
+                      <Typography variant="caption" className="text-accent mt-2 block">
+                        {person.role}
+                      </Typography>
+                      <Typography variant="body-sm" className="text-muted-foreground mt-2 m-0">
+                        {person.location}
+                      </Typography>
+                    </div>
                   </div>
-                </Reveal>
-              ))}
-            </div>
-
-            <div className="mt-8">
-              <Typography variant="body-sm" className="text-muted-foreground">
-                Want to connect or collaborate? <Link href="/contact" variant="underline">Contact us</Link>.
-              </Typography>
-            </div>
+                  <Typography variant="body-sm" className="text-muted-foreground mt-4 m-0">
+                    {person.bio}
+                  </Typography>
+                </div>
+              </Reveal>
+            ))}
           </div>
+
+          {moreTeam.length > 0 && (
+            <div className="mt-10 border-t border-foreground/10 pt-8">
+              <Reveal as="div" delay={0.02} y={10}>
+                <Typography variant="h6" className="mb-4">
+                  Additional team
+                </Typography>
+              </Reveal>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {moreTeam.map((person, idx) => (
+                  <Reveal key={person.name} as="div" delay={0.03 + idx * 0.04} y={8}>
+                    <div className="border-t border-foreground/10 pt-5">
+                      <Typography variant="h6" className="m-0">
+                        {person.name}
+                      </Typography>
+                      <Typography variant="caption" className="text-accent mt-2 block">
+                        {person.role} • {person.location}
+                      </Typography>
+                      <Typography variant="body-sm" className="text-muted-foreground mt-3 m-0">
+                        {person.bio}
+                      </Typography>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          )}
+
+          
         </Container>
       </Section>
-
     </>
   );
 }

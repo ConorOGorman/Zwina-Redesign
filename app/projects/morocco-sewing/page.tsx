@@ -1,13 +1,16 @@
 import { PageHeaderSection } from "@/components/sections/PageHeaderSection";
 import { ContentSection } from "@/components/sections/ContentSection";
 import Image from "next/image";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export default function MoroccoSewingPage() {
+  const locale = getLocale();
   return (
     <>
       <PageHeaderSection 
-        title="Morocco – Sewing & Social Business" 
-        description="Empowering women in Talat'N Minoun through entrepreneurship."
+        title={t(locale, "pages.moroccoTitle")} 
+        description={t(locale, "pages.moroccoDesc")}
       />
       <ContentSection>
         <div className="not-prose mb-10">
@@ -24,7 +27,7 @@ export default function MoroccoSewingPage() {
         </div>
 
         <p>
-          Project details, timeline, and impact metrics for the sewing initiative.
+          {t(locale, "pages.moroccoBody")}
         </p>
       </ContentSection>
     </>

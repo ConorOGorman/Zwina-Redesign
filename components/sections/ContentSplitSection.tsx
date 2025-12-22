@@ -5,8 +5,11 @@ import { Button } from "@/components/primitives/Button";
 import { Link } from "@/components/primitives/Link";
 import Image from "next/image";
 import React from "react";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export const ContentSplitSection: React.FC = () => {
+  const locale = getLocale();
   return (
     <Section className="bg-secondary">
       <Container>
@@ -26,17 +29,15 @@ export const ContentSplitSection: React.FC = () => {
           </div>
           <div className="order-1 lg:order-2">
             <Typography variant="h2" className="mb-8">
-              Handcrafted <br />
-              <span className="italic text-primary">Just For You</span>
+              {t(locale, "home.handcrafted.titleA")} <br />
+              <span className="italic text-primary">{t(locale, "home.handcrafted.titleB")}</span>
             </Typography>
             <Typography variant="body" className="mb-8 text-lg">
-              Each piece in our collection is uniquely tailor-made to your measurements and
-              preferences. Our artisans in Talat N&apos;Minoun take pride in crafting garments that are not only
-              beautiful, but also perfect for the person who will wear them.
+              {t(locale, "home.handcrafted.body")}
             </Typography>
-            <Button asChild variant="outline">
+            <Button asChild variant="outline" effect="none">
               <Link href="/shop" className="no-underline">
-                Explore Collection
+                {t(locale, "home.handcrafted.cta")}
               </Link>
             </Button>
           </div>

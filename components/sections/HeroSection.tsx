@@ -8,6 +8,8 @@ import { Link } from "@/components/primitives/Link";
 import { Reveal } from "@/components/primitives/Reveal";
 import React from "react";
 import Image from "next/image";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { t } from "@/lib/i18n/t";
 
 type MarqueeImage = {
   src: string;
@@ -49,6 +51,7 @@ function MarqueeColumn({
 }
 
 export const HeroSection: React.FC = () => {
+  const { locale } = useLocale();
   const leftColumn: MarqueeImage[] = [
     { src: "/images/projects/Products/Fez Bomber.png", alt: "Fez Bomber" },
     { src: "/images/projects/Products/Desert Coat.png", alt: "Desert Coat" },
@@ -75,7 +78,7 @@ export const HeroSection: React.FC = () => {
             <div className="max-w-xl">
               <Reveal as="div" delay={0.02}>
                 <Typography variant="caption" className="text-primary mb-6 block font-medium tracking-widest">
-                  Est. 2018 — The Hague & Morocco
+                  {t(locale, "home.hero.caption")}
                 </Typography>
               </Reveal>
 
@@ -84,17 +87,16 @@ export const HeroSection: React.FC = () => {
                   variant="h1"
                   className="mb-7 leading-[1.05] text-5xl md:text-6xl lg:text-7xl"
                 >
-                  Empowering <br />
-                  <span className="text-primary italic font-serif pr-4">Communities</span>
-                  <span className="text-primary"> &</span> <br />
-                  Inspiring Generations
+                  {t(locale, "home.hero.titleA")} <br />
+                  <span className="text-primary italic font-serif pr-4">{t(locale, "home.hero.titleB")}</span>
+                  <span className="text-primary"> {t(locale, "home.hero.titleAnd")}</span> <br />
+                  {t(locale, "home.hero.titleC")}
                 </Typography>
               </Reveal>
 
               <Reveal as="div" delay={0.14}>
                 <Typography variant="body" className="mb-10 text-lg md:text-xl text-primary/90">
-                  We are a youth-led foundation bridging the gap between Europe and Africa through
-                  sustainable development, education, and social entrepreneurship.
+                  {t(locale, "home.hero.body")}
                 </Typography>
               </Reveal>
 
@@ -102,7 +104,7 @@ export const HeroSection: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-6">
                   <Button size="lg" asChild variant="primary" effect="sweep">
                     <Link href="/projects" className="no-underline">
-                      Our Projects
+                      {t(locale, "home.hero.ctaProjects")}
                     </Link>
                   </Button>
                   <Button
@@ -112,7 +114,7 @@ export const HeroSection: React.FC = () => {
                     className="border-primary/30 text-primary hover:bg-primary/5"
                   >
                     <Link href="/about" className="no-underline">
-                      Read Our Story
+                      {t(locale, "home.hero.ctaStory")}
                     </Link>
                   </Button>
                 </div>

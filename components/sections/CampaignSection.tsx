@@ -4,29 +4,31 @@ import { Typography } from "@/components/primitives/Typography";
 import { Button } from "@/components/primitives/Button";
 import { Link } from "@/components/primitives/Link";
 import React from "react";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export const CampaignSection: React.FC = () => {
+  const locale = getLocale();
   return (
     <Section className="bg-secondary text-foreground border-t border-foreground/10">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
           <Typography variant="caption" className="text-primary mb-4 block">
-            Seasonal Campaign
+            {t(locale, "home.campaign.caption")}
           </Typography>
           <Typography variant="h2" className="mb-6 text-balance">
-            Gifts That <span className="italic text-primary">Change Lives</span>
+            {t(locale, "home.campaign.titleA")} <span className="italic text-primary">{t(locale, "home.campaign.titleB")}</span>
           </Typography>
           <Typography variant="body" className="mx-auto max-w-2xl text-pretty text-foreground-muted text-lg md:text-xl">
-            This Christmas, give something meaningful. Our ethical gifts are handcrafted by women in Morocco,
-            turning your generosity into lasting opportunities.
+            {t(locale, "home.campaign.body")}
           </Typography>
         </div>
 
         <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground/10 border border-foreground/10 text-center">
           {[
-            { title: "40+ Women Trained", desc: "In sewing & entrepreneurship skills" },
-            { title: "Fair Pay Guaranteed", desc: "Per piece + paid training hours" },
-            { title: "100% Reinvested", desc: "Profits fund more community projects" }
+            { title: t(locale, "home.campaign.stat1Title"), desc: t(locale, "home.campaign.stat1Desc") },
+            { title: t(locale, "home.campaign.stat2Title"), desc: t(locale, "home.campaign.stat2Desc") },
+            { title: t(locale, "home.campaign.stat3Title"), desc: t(locale, "home.campaign.stat3Desc") }
           ].map((item, i) => (
             <div
               key={i}
@@ -41,9 +43,9 @@ export const CampaignSection: React.FC = () => {
         </div>
 
         <div className="text-center mt-12 md:mt-14">
-          <Button size="lg" variant="primary" effect="sweep" asChild>
+          <Button size="lg" variant="primary" effect="none" asChild>
             <Link href="/shop" className="no-underline">
-              View Full Catalogue
+              {t(locale, "home.campaign.cta")}
             </Link>
           </Button>
         </div>

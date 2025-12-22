@@ -4,13 +4,16 @@ import { Typography } from "@/components/primitives/Typography";
 import { AnimatedNumber } from "@/components/primitives/AnimatedNumber";
 import { Reveal } from "@/components/primitives/Reveal";
 import React from "react";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export const VisionStatsSection: React.FC = () => {
+  const locale = getLocale();
   const stats = [
-    { label: "Launch 20+ micro-social businesses", value: "20+" },
-    { label: "Support 100+ youth leaders", value: "100+" },
-    { label: "Expand to 4 new countries", value: "04" },
-    { label: "Reach 100,000+ young people", value: "100k" },
+    { label: t(locale, "home.vision.stats.s1"), value: "20+" },
+    { label: t(locale, "home.vision.stats.s2"), value: "100+" },
+    { label: t(locale, "home.vision.stats.s3"), value: "04" },
+    { label: t(locale, "home.vision.stats.s4"), value: "100k" },
   ];
 
   return (
@@ -18,11 +21,11 @@ export const VisionStatsSection: React.FC = () => {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
           <Typography variant="h2">
-            Our Vision <br />
-            <span className="text-primary italic">for 2027</span>
+            {t(locale, "home.vision.titleA")} <br />
+            <span className="text-primary italic">{t(locale, "home.vision.titleB")}</span>
           </Typography>
           <Typography variant="body" className="self-end">
-            We aim to scale our impact globally, creating a network of youth leaders and sustainable social enterprises.
+            {t(locale, "home.vision.body")}
           </Typography>
         </div>
         

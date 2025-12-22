@@ -6,14 +6,10 @@ import { Typography } from "@/components/primitives/Typography";
 import { Button } from "@/components/primitives/Button";
 import { Reveal } from "@/components/primitives/Reveal";
 import React from "react";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { t } from "@/lib/i18n/t";
 
 type InquiryType = "partnership" | "volunteer" | "donation";
-
-const INQUIRY_LABEL: Record<InquiryType, string> = {
-  partnership: "Partnership",
-  volunteer: "Volunteer",
-  donation: "Donation",
-};
 
 const INQUIRY_EMAIL: Record<InquiryType, string> = {
   partnership: "partnerships@zwinafoundation.org",
@@ -26,17 +22,24 @@ function buildMailtoUrl(params: {
   name: string;
   email: string;
   organization?: string;
-  inquiryType: InquiryType;
+  inquiryLabel: string;
   message: string;
+  subjectPrefix: string;
+  fieldLabels: {
+    name: string;
+    email: string;
+    organization: string;
+    inquiryType: string;
+  };
 }) {
-  const subjectParts = ["Zwina contact", INQUIRY_LABEL[params.inquiryType], params.name].filter(Boolean);
+  const subjectParts = [params.subjectPrefix, params.inquiryLabel, params.name].filter(Boolean);
   const subject = subjectParts.join(" — ");
 
   const bodyLines = [
-    `Name: ${params.name}`,
-    `Email: ${params.email}`,
-    params.organization ? `Organization: ${params.organization}` : undefined,
-    `Inquiry type: ${INQUIRY_LABEL[params.inquiryType]}`,
+    `${params.fieldLabels.name}: ${params.name}`,
+    `${params.fieldLabels.email}: ${params.email}`,
+    params.organization ? `${params.fieldLabels.organization}: ${params.organization}` : undefined,
+    `${params.fieldLabels.inquiryType}: ${params.inquiryLabel}`,
     "",
     params.message.trim(),
   ].filter((l): l is string => Boolean(l));
@@ -55,6 +58,7 @@ interface ContactFormSectionProps {
 }
 
 export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntro = true }) => {
+  const { locale } = useLocale();
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [organization, setOrganization] = React.useState("");
@@ -62,6 +66,11 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
   const [message, setMessage] = React.useState("");
 
   const canSubmit = name.trim().length > 0 && email.trim().length > 0 && message.trim().length > 0;
+  const inquiryLabelByType: Record<InquiryType, string> = {
+    partnership: t(locale, "contact.partnership"),
+    volunteer: t(locale, "contact.volunteer"),
+    donation: t(locale, "contact.donation"),
+  };
 
   return (
     <Section className="bg-secondary border-t border-foreground/10 pt-24 md:pt-32">
@@ -72,14 +81,13 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
               <>
                 <Reveal as="div" delay={0.02}>
                   <Typography variant="h2" className="mb-6">
-                    Get In Touch
+                    {t(locale, "contact.title")}
                   </Typography>
                 </Reveal>
 
                 <Reveal as="div" delay={0.08}>
                   <Typography variant="body" className="max-w-xl">
-                    Send us a message and we’ll reply as soon as possible. Choose an inquiry type so it
-                    reaches the right team.
+                    {t(locale, "contact.body")}
                   </Typography>
                 </Reveal>
               </>
@@ -89,7 +97,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
               <Reveal as="div" delay={0.14}>
                 <div>
                   <Typography variant="h6" className="mb-2">
-                    Partnership
+                    {t(locale, "contact.partnership")}
                   </Typography>
                   <Typography variant="body-sm" className="m-0">
                     <a
@@ -105,7 +113,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
               <Reveal as="div" delay={0.2}>
                 <div>
                   <Typography variant="h6" className="mb-2">
-                    Volunteer
+                    {t(locale, "contact.volunteer")}
                   </Typography>
                   <Typography variant="body-sm" className="m-0">
                     <a className="underline underline-offset-4" href="mailto:info@zwinafoundation.org">
@@ -118,7 +126,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
               <Reveal as="div" delay={0.26}>
                 <div>
                   <Typography variant="h6" className="mb-2">
-                    Donation
+                    {t(locale, "contact.donation")}
                   </Typography>
                   <Typography variant="body-sm" className="m-0">
                     <a className="underline underline-offset-4" href="mailto:info@zwinafoundation.org">
@@ -143,8 +151,15 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
                     name,
                     email,
                     organization: organization.trim() ? organization.trim() : undefined,
-                    inquiryType,
+                    inquiryLabel: inquiryLabelByType[inquiryType],
                     message,
+                    subjectPrefix: t(locale, "contact.mailSubjectPrefix"),
+                    fieldLabels: {
+                      name: t(locale, "contact.name"),
+                      email: t(locale, "contact.email"),
+                      organization: t(locale, "contact.organization"),
+                      inquiryType: t(locale, "contact.inquiryType"),
+                    },
                   });
 
                   window.location.href = url;
@@ -155,7 +170,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-foreground mb-2" htmlFor="contact-name">
-                      Name <span aria-hidden="true">*</span>
+                      {t(locale, "contact.name")} <span aria-hidden="true">*</span>
                     </label>
                     <input
                       id="contact-name"
@@ -170,7 +185,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
 
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2" htmlFor="contact-email">
-                      Email <span aria-hidden="true">*</span>
+                      {t(locale, "contact.email")} <span aria-hidden="true">*</span>
                     </label>
                     <input
                       id="contact-email"
@@ -186,7 +201,8 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
 
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2" htmlFor="contact-org">
-                      Organization <span className="text-muted-foreground">(optional)</span>
+                      {t(locale, "contact.organization")}{" "}
+                      <span className="text-muted-foreground">({t(locale, "contact.optional")})</span>
                     </label>
                     <input
                       id="contact-org"
@@ -200,7 +216,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
 
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-foreground mb-2" htmlFor="contact-type">
-                      Inquiry type
+                      {t(locale, "contact.inquiryType")}
                     </label>
                     <select
                       id="contact-type"
@@ -209,15 +225,15 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
                       onChange={(e) => setInquiryType(e.target.value as InquiryType)}
                       className="h-12 w-full rounded-md border border-foreground/15 bg-surface px-4 text-foreground outline-none transition focus:border-foreground/30 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface"
                     >
-                      <option value="partnership">Partnership</option>
-                      <option value="volunteer">Volunteer</option>
-                      <option value="donation">Donation</option>
+                      <option value="partnership">{t(locale, "contact.partnership")}</option>
+                      <option value="volunteer">{t(locale, "contact.volunteer")}</option>
+                      <option value="donation">{t(locale, "contact.donation")}</option>
                     </select>
                   </div>
 
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-foreground mb-2" htmlFor="contact-message">
-                      Message <span aria-hidden="true">*</span>
+                      {t(locale, "contact.message")} <span aria-hidden="true">*</span>
                     </label>
                     <textarea
                       id="contact-message"
@@ -227,18 +243,18 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({ showIntr
                       required
                       rows={6}
                       className="w-full resize-y rounded-md border border-foreground/15 bg-surface px-4 py-3 text-foreground placeholder:text-muted-foreground outline-none transition focus:border-foreground/30 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface"
-                      placeholder="Tell us how we can help…"
+                      placeholder={t(locale, "contact.messagePlaceholder")}
                     />
                   </div>
                 </div>
 
                 <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <Typography variant="caption" className="m-0 text-muted-foreground">
-                    Fields marked * are required.
+                    {t(locale, "contact.requiredHint")}
                   </Typography>
 
                   <Button type="submit" variant="primary" size="lg" effect="sweep" disabled={!canSubmit}>
-                    Send Message
+                    {t(locale, "contact.send")}
                   </Button>
                 </div>
               </form>

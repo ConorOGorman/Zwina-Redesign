@@ -1,14 +1,17 @@
 import { PageHeaderSection } from "@/components/sections/PageHeaderSection";
 import { ContentSection } from "@/components/sections/ContentSection";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export default function BangladeshEnglishPage() {
+  const locale = getLocale();
   return (
     <>
       <PageHeaderSection 
-        title="Bangladesh – Global Language Bridge" 
-        description="Online English classes for orphaned children."
+        title={t(locale, "pages.bangladeshTitle")} 
+        description={t(locale, "pages.bangladeshDesc")}
       />
-      <ContentSection content="Project details, volunteer teachers, and student success stories." />
+      <ContentSection content={t(locale, "pages.bangladeshContent")} />
     </>
   );
 }

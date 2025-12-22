@@ -7,6 +7,8 @@ import { Reveal } from "@/components/primitives/Reveal";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export type ProjectsGridSectionProps = {
   excludeLinks?: string[];
@@ -19,6 +21,7 @@ export const ProjectsGridSection: React.FC<ProjectsGridSectionProps> = ({
   variant = "standalone",
   className,
 }) => {
+  const locale = getLocale();
   const isEmbedded = variant === "embedded";
 
   const projects: Array<{
@@ -31,37 +34,37 @@ export const ProjectsGridSection: React.FC<ProjectsGridSectionProps> = ({
     imageAlt?: string;
   }> = [
     {
-      country: "Morocco",
+      country: t(locale, "home.projects.cards.moroccoCountry"),
       flag: "🇲🇦",
-      title: "Sewing & Social Business",
-      description: "In the village of Talat'N Minoun, we trained 100 women in sewing and entrepreneurship through a 6-month course.",
+      title: t(locale, "home.projects.cards.moroccoTitle"),
+      description: t(locale, "home.projects.cards.moroccoDesc"),
       link: "/projects/morocco-sewing",
       imageSrc: "/images/projects/Morocco/morocco-workshop-1.png",
       imageAlt: "Women participating in a sewing workshop in Talat'N Minoun, Morocco"
     },
     {
-      country: "Bangladesh",
+      country: t(locale, "home.projects.cards.bangladeshCountry"),
       flag: "🇧🇩",
-      title: "Global Language Bridge",
-      description: "With only €1,000, we launched weekly online English classes for 120 orphaned children in partnership with the Bidyanondo Foundation.",
+      title: t(locale, "home.projects.cards.bangladeshTitle"),
+      description: t(locale, "home.projects.cards.bangladeshDesc"),
       link: "/projects/bangladesh-english",
       imageSrc: "/images/projects/Bangladesh/bangladesh-classroom-2.jpeg",
       imageAlt: "Students in an English classroom in Bangladesh"
     },
     {
-      country: "The Hague, Netherlands",
+      country: t(locale, "home.projects.cards.hagueCountry"),
       flag: "🇳🇱",
-      title: "Youth Empowerment Events",
-      description: "Two large events in The Hague with 400+ participants. Workshops on project design, storytelling, and cultural exchange with real-world impact.",
+      title: t(locale, "home.projects.cards.hagueTitle"),
+      description: t(locale, "home.projects.cards.hagueDesc"),
       link: "/projects/youth-empowerment-events",
       imageSrc: "/images/projects/Youth%20Empowerment%20events/Empowerment-and-Participation.jpg",
       imageAlt: "Youth empowerment workshop in The Hague"
     },
     {
-      country: "Europe & Beyond",
+      country: t(locale, "home.projects.cards.europeCountry"),
       flag: "🌍",
-      title: "The Zwina Challenge",
-      description: "Incubating youth-led social businesses for a fair and sustainable Europe. A 12-month cohort supporting young changemakers from idea to launch.",
+      title: t(locale, "home.projects.cards.europeTitle"),
+      description: t(locale, "home.projects.cards.europeDesc"),
       link: "/projects/zwina-challenge",
       imageSrc: "/images/projects/Zwina%20Challenge/zwina-challenge-CTr7CwXX.jpg",
       imageAlt: "The Zwina Challenge program"
@@ -74,7 +77,7 @@ export const ProjectsGridSection: React.FC<ProjectsGridSectionProps> = ({
   const bottomProjects = filteredProjects.slice(2);
 
   const renderProjectCard = (project: (typeof projects)[number], index: number, priority: boolean) => (
-    <Reveal key={`${project.link}-${index}`} as="div" delay={0.06 + index * 0.06}>
+    <Reveal key={`${project.link}-${index}`} as="div" delay={0.02 + index * 0.04}>
       <div className="group relative transition-transform duration-500 ease-default hover:-translate-y-1">
         <div className="aspect-video bg-secondary mb-6 overflow-hidden">
         {project.imageSrc ? (
@@ -84,7 +87,6 @@ export const ProjectsGridSection: React.FC<ProjectsGridSectionProps> = ({
               alt={project.imageAlt ?? project.title}
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              unoptimized
               className="object-cover"
               priority={priority}
             />
@@ -102,7 +104,7 @@ export const ProjectsGridSection: React.FC<ProjectsGridSectionProps> = ({
           {project.description}
         </Typography>
         <Link href={project.link} className="inline-flex items-center text-sm uppercase tracking-widest hover:text-accent transition-colors">
-          Read Case Study <span className="ml-2">→</span>
+          {t(locale, "home.projects.readCaseStudy")} <span className="ml-2">→</span>
         </Link>
       </div>
     </Reveal>
@@ -116,9 +118,9 @@ export const ProjectsGridSection: React.FC<ProjectsGridSectionProps> = ({
       <Container>
         {!isEmbedded && (
           <div className="flex justify-between items-end mb-16">
-            <Typography variant="h2">Our Projects</Typography>
+            <Typography variant="h2">{t(locale, "home.projects.title")}</Typography>
             <Button variant="outline" asChild className="hidden md:inline-flex">
-              <Link href="/projects" className="no-underline">View All Work</Link>
+              <Link href="/projects" className="no-underline">{t(locale, "home.projects.viewAll")}</Link>
             </Button>
           </div>
         )}
@@ -128,7 +130,7 @@ export const ProjectsGridSection: React.FC<ProjectsGridSectionProps> = ({
         </div>
 
         {bottomProjects.length > 0 && (
-          <div className="mt-2.5 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             {bottomProjects.map((project, index) => renderProjectCard(project, index + topProjects.length, false))}
           </div>
         )}

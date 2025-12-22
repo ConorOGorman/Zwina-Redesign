@@ -17,7 +17,6 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       lerp: 0.08,
       wheelMultiplier: 0.9,
       smoothWheel: true,
-      smoothTouch: false,
     });
 
     let rafId = 0;

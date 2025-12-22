@@ -16,6 +16,175 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html.zwina-splash--active body {
+  overflow: hidden;
+}
+
+html.zwina-splash--pending body {
+  opacity: 0;
+}
+
+html.zwina-splash--pending .zwina-initial-splash {
+  opacity: 0;
+  pointer-events: none;
+}
+
+html.zwina-splash--active body > :not(.zwina-initial-splash) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.zwina-initial-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(900px 540px at 24% 22%, color-mix(in srgb, var(--secondary) 92%, transparent), transparent 62%),
+    radial-gradient(780px 520px at 74% 28%, color-mix(in srgb, var(--background-soft) 92%, transparent), transparent 58%),
+    radial-gradient(620px 460px at 50% 78%, color-mix(in srgb, var(--secondary) 78%, transparent), transparent 55%),
+    linear-gradient(to bottom, color-mix(in srgb, var(--background) 92%, #fff), var(--background));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 450ms var(--motion-ease-default);
+}
+
+html.zwina-splash--active .zwina-initial-splash,
+.zwina-initial-splash[data-state="active"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.zwina-initial-splash[data-state="exiting"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.zwina-splash-inner {
+  text-align: center;
+  padding: 2.25rem 1.5rem;
+  transform: translateZ(0);
+  filter: drop-shadow(0 22px 50px rgba(0, 0, 0, 0.12));
+}
+
+.zwina-splash-logo {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.2rem;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  font-size: clamp(3.1rem, 7vw, 5.2rem);
+}
+
+.zwina-splash-letter {
+  display: inline-block;
+  transform-origin: 50% 80%;
+  animation: zwina-splash-pop 1100ms var(--motion-ease-default) both;
+}
+
+.zwina-splash-letter--z {
+  color: var(--logo-z);
+  animation-delay: 90ms;
+  transform: rotate(-6deg);
+}
+.zwina-splash-letter--w {
+  color: var(--logo-yellow);
+  animation-delay: 180ms;
+  transform: rotate(3deg);
+}
+.zwina-splash-letter--i {
+  color: var(--accent);
+  animation-delay: 260ms;
+  transform: rotate(-2deg);
+}
+.zwina-splash-letter--n {
+  color: var(--logo-n);
+  animation-delay: 340ms;
+  transform: rotate(5deg);
+}
+.zwina-splash-letter--a {
+  color: var(--logo-yellow);
+  animation-delay: 420ms;
+  transform: rotate(-2deg);
+}
+
+.zwina-splash-progress {
+  margin-top: 1.05rem;
+  width: min(420px, 76vw);
+}
+
+.zwina-splash-progress-track {
+  height: 10px;
+  width: 100%;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--foreground) 10%, transparent);
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.zwina-splash-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-sky) 70%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 55%, transparent) 40%,
+    color-mix(in srgb, var(--color-pink) 45%, transparent) 100%
+  );
+  box-shadow: 0 8px 22px -14px rgba(0, 0, 0, 0.55);
+  transition: width 120ms linear;
+}
+
+.zwina-splash-progress-meta {
+  margin-top: 0.95rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.zwina-splash-caption {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--foreground) 62%, transparent);
+}
+
+.zwina-splash-percent {
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--foreground) 88%, transparent);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  border-radius: 9999px;
+  padding: 0.25rem 0.6rem;
+  box-shadow: 0 12px 34px -24px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes zwina-splash-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.92);
+    filter: blur(2px);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.03);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    filter: blur(0px);
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 400; /* Elegant, not too bold */
@@ -93,6 +262,11 @@ h1, h2, h3, h4, h5, h6 {
   .hero-marquee-down {
     animation: none !important;
     transform: none !important;
+  }
+
+  .zwina-splash-letter,
+  .zwina-splash-progress-fill {
+    animation: none !important;
   }
 }
 

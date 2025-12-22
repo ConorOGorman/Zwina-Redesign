@@ -1,14 +1,17 @@
 import { PageHeaderSection } from "@/components/sections/PageHeaderSection";
 import { ContentSection } from "@/components/sections/ContentSection";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export default function ZwinaChallengePage() {
+  const locale = getLocale();
   return (
     <>
       <PageHeaderSection 
-        title="Zwina Challenge" 
-        description="A one-year incubator for youth-led social change."
+        title={t(locale, "pages.challengeTitle")} 
+        description={t(locale, "pages.challengeDesc")}
       />
-      <ContentSection content="Detailed program curriculum, eligibility criteria, and application process." />
+      <ContentSection content={t(locale, "pages.challengeContent")} />
     </>
   );
 }

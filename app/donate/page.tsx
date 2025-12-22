@@ -2,26 +2,28 @@ import { PageHeaderSection } from "@/components/sections/PageHeaderSection";
 import { ContentSection } from "@/components/sections/ContentSection";
 import { Button } from "@/components/primitives/Button";
 import { Link } from "@/components/primitives/Link";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export default function DonatePage() {
+  const locale = getLocale();
   return (
     <>
       <PageHeaderSection 
-        title="Donate" 
-        description="Your contribution helps us empower more communities and inspire more generations."
+        title={t(locale, "pages.donateTitle")} 
+        description={t(locale, "pages.donateDesc")}
       />
       <ContentSection>
         <div className="text-center space-y-8">
           <p className="text-lg">
-            We rely on the generosity of individuals like you to fund our projects in Morocco, Bangladesh, and beyond.
-            100% of your donation goes directly to the field.
+            {t(locale, "pages.donateBody")}
           </p>
           <div className="flex justify-center gap-4">
-            <Button size="lg" asChild>
-              <Link href="#" className="text-white no-underline hover:text-white">Donate via PayPal</Link>
+            <Button size="lg" asChild effect="none">
+              <Link href="#" className="text-white no-underline hover:text-white">{t(locale, "pages.donatePaypal")}</Link>
             </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link href="#" className="no-underline">Bank Transfer</Link>
+            <Button variant="outline" size="lg" asChild effect="none">
+              <Link href="#" className="no-underline">{t(locale, "pages.donateBank")}</Link>
             </Button>
           </div>
         </div>

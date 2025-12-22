@@ -4,8 +4,11 @@ import { Typography } from "@/components/primitives/Typography";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export const PartnersLogosSection: React.FC = () => {
+  const locale = getLocale();
   const partners: Array<{
     name: string;
     logoSrc?: string;
@@ -41,7 +44,9 @@ export const PartnersLogosSection: React.FC = () => {
   return (
     <Section className="border-t border-foreground/10">
       <Container>
-        <Typography variant="caption" className="text-center mb-12 block text-muted-foreground">Trusted By</Typography>
+        <Typography variant="caption" className="text-center mb-12 block text-muted-foreground">
+          {t(locale, "home.trustedBy")}
+        </Typography>
 
         <div className="mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-4 items-center justify-items-center gap-x-10 md:gap-x-16 gap-y-10">

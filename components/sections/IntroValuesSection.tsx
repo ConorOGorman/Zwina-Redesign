@@ -2,9 +2,13 @@ import { Container } from "@/components/primitives/Container";
 import { Section } from "@/components/primitives/Section";
 import { Typography } from "@/components/primitives/Typography";
 import { Reveal } from "@/components/primitives/Reveal";
+import { ScrollFillText } from "@/components/primitives/ScrollFillText";
 import React from "react";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export const IntroValuesSection: React.FC = () => {
+  const locale = getLocale();
   const ValueIcon: React.FC<{ kind: "youth" | "community" | "global"; className?: string }> = ({
     kind,
     className,
@@ -83,18 +87,18 @@ export const IntroValuesSection: React.FC = () => {
   const values = [
     {
       icon: "youth" as const,
-      title: "Youth-Led",
-      description: "Students and young professionals driving change in their communities",
+      title: t(locale, "home.intro.values.youthTitle"),
+      description: t(locale, "home.intro.values.youthDesc"),
     },
     {
       icon: "community" as const,
-      title: "Community-Driven",
-      description: "Local solutions created with and by the communities we serve",
+      title: t(locale, "home.intro.values.communityTitle"),
+      description: t(locale, "home.intro.values.communityDesc"),
     },
     {
       icon: "global" as const,
-      title: "Global Impact",
-      description: "Grassroots action creating lasting change across continents",
+      title: t(locale, "home.intro.values.globalTitle"),
+      description: t(locale, "home.intro.values.globalDesc"),
     },
   ];
 
@@ -103,12 +107,16 @@ export const IntroValuesSection: React.FC = () => {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
           <div className="lg:col-span-4">
-            <Typography variant="h2" className="mb-4">Who We Are</Typography>
+            <Typography variant="h2" className="mb-4">
+              {t(locale, "home.intro.title")}
+            </Typography>
           </div>
           <div className="lg:col-span-8">
-            <Typography variant="body" className="m-0 text-2xl md:text-3xl leading-relaxed">
-              Zwina Foundation began as a group of students in the Netherlands who decided not to wait for the perfect moment to create impact—we simply started. Today, we are a youth-led organization empowering communities worldwide to turn challenges into opportunities.
-            </Typography>
+            <ScrollFillText
+              as="p"
+              text={t(locale, "home.intro.body")}
+              className="m-0 text-2xl md:text-3xl leading-relaxed font-sans text-foreground-muted font-normal"
+            />
           </div>
         </div>
 

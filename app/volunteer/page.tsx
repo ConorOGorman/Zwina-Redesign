@@ -2,22 +2,24 @@ import { PageHeaderSection } from "@/components/sections/PageHeaderSection";
 import { ContentSection } from "@/components/sections/ContentSection";
 import { Button } from "@/components/primitives/Button";
 import { Link } from "@/components/primitives/Link";
+import { getLocale } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/t";
 
 export default function VolunteerPage() {
+  const locale = getLocale();
   return (
     <>
       <PageHeaderSection 
-        title="Volunteer" 
-        description="Join our global team of changemakers."
+        title={t(locale, "pages.volunteerTitle")} 
+        description={t(locale, "pages.volunteerDesc")}
       />
       <ContentSection>
         <div className="text-center">
           <p className="mb-8">
-            Whether you have skills in marketing, project management, or just a passion for helping others,
-            we have a place for you.
+            {t(locale, "pages.volunteerBody")}
           </p>
-          <Button size="lg" asChild>
-            <Link href="/contact" className="text-white no-underline hover:text-white">Apply Now</Link>
+          <Button size="lg" asChild effect="none">
+            <Link href="/contact" className="text-white no-underline hover:text-white">{t(locale, "pages.volunteerApply")}</Link>
           </Button>
         </div>
       </ContentSection>

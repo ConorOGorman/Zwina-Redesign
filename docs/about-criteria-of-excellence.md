@@ -41,6 +41,8 @@ Minimum coverage checklist:
 - Borders/dividers: prefer `border-foreground/10` + `bg-surface` / `bg-background` / `bg-secondary`.
 - Typography: headings use `Typography` variants; body copy should use `text-muted-foreground` consistently.
 - Buttons: only existing variants (`primary`, `outline`, `ghost`) with existing motion effects.
+- Anchor offsets: add `scroll-mt-32` to every `id` target so in-page links clear the fixed header.
+- Avoid “card grids” for core content: prefer editorial layouts (dividers + whitespace) over boxed panels.
 
 ## Motion excellence (Framer Motion)
 Motion should feel cohesive and intentional, not random.
@@ -57,6 +59,7 @@ Suggested pattern (house style):
 
 ## Accessibility
 - Anchor navigation should work with keyboard and screen readers.
+- “On this page” links need a visible focus state (`focus-visible:ring-*`).
 - Headings should be semantically correct and in order.
 - Images must have meaningful `alt` text.
 - Links must be descriptive (no “click here”).
@@ -76,3 +79,10 @@ Targets:
 - Apply consistent `Reveal`/stagger across all modules.
 - Use `AnimatedTextReveal` only where it improves polish (hero subheading, mission line).
 - Enforce team constraint: max 3–6 cards, move remaining bios into a compact “Additional team” list.
+
+### v3 (structure-first, calmer UI)
+Targets:
+- Reduce “mess”: fewer nested panels, fewer competing headings, tighter grids.
+- Clear story → mission → approach flow with one obvious headline per section.
+- Consistent section rhythm: caption → headline → supporting line → content module.
+- Make “On this page” pills uniform with the new navbar theme and ensure every anchor has `scroll-mt-32`.

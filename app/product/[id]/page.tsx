@@ -1,16 +1,14 @@
-import { PageHeaderSection } from "@/components/sections/PageHeaderSection";
-import { ContentSection } from "@/components/sections/ContentSection";
-import { CtaSection } from "@/components/sections/CtaSection";
+import { notFound } from "next/navigation";
+import { ProductDetailClient } from "@/components/shop/ProductDetailClient";
+import { getShopProductById } from "@/lib/shop/products";
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
+  const product = getShopProductById(params.id);
+  if (!product) notFound();
+
   return (
     <>
-      <PageHeaderSection 
-        title={`Product Details (ID: ${params.id})`} 
-        description="Handcrafted with care."
-      />
-      <ContentSection content="Product description, materials, and sizing information." />
-      <CtaSection />
+      <ProductDetailClient product={product} />
     </>
   );
 }
