@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { BookOpen, MapPin } from "lucide-react";
 import { Container } from "@/components/primitives/Container";
 import { Section } from "@/components/primitives/Section";
 import { Typography } from "@/components/primitives/Typography";
@@ -11,6 +10,55 @@ import { Reveal } from "@/components/primitives/Reveal";
 type Anchor = { label: string; href: string };
 
 export default function AboutPage() {
+  const countryCodeByName: Record<string, string> = {
+    Bangladesh: "BD",
+    France: "FR",
+    Italy: "IT",
+    Morocco: "MA",
+    Netherlands: "NL",
+    Spain: "ES",
+    Switzerland: "CH",
+    "United Kingdom": "GB",
+    UK: "GB",
+    "United States": "US",
+    USA: "US",
+  };
+
+  const flagEmoji = (countryCode: string) =>
+    countryCode
+      .toUpperCase()
+      .replace(/[^A-Z]/g, "")
+      .slice(0, 2)
+      .split("")
+      .map((char) => String.fromCodePoint(127397 + char.charCodeAt(0)))
+      .join("");
+
+  const renderLocationWithFlags = (location: string) => {
+    const parts = location
+      .split("/")
+      .map((part) => part.trim())
+      .filter(Boolean);
+
+    return (
+      <span className="inline-flex flex-wrap items-center gap-x-3 gap-y-1">
+        {parts.map((country, idx) => {
+          const code = countryCodeByName[country];
+          const flag = code ? flagEmoji(code) : null;
+          return (
+            <span key={`${country}-${idx}`} className="inline-flex items-center gap-2">
+              {flag ? (
+                <span aria-hidden="true" className="text-base leading-none">
+                  {flag}
+                </span>
+              ) : null}
+              <span>{country}</span>
+            </span>
+          );
+        })}
+      </span>
+    );
+  };
+
   const onThisPage: Anchor[] = [
     { label: "Overview", href: "#overview" },
     { label: "Mission", href: "#mission" },
@@ -161,8 +209,7 @@ export default function AboutPage() {
     "Led by local youth who understand their communities' needs.",
   ];
 
-  const featuredTeam = team.slice(0, 6);
-  const moreTeam = team.slice(6);
+  const displayedTeam = team;
 
   return (
     <>
@@ -246,98 +293,74 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-	        <Section id="overview" className="border-t border-foreground/10 scroll-mt-32" spacing="lg">
-	          <Container>
-	            <Reveal as="div" delay={0.02}>
-	              <div className="mx-auto max-w-6xl text-left">
-	                <Typography variant="caption" className="text-accent mb-4 block">
-	                  Overview
-	                </Typography>
-	                <Typography variant="h2" className="mb-4">
-	                  What we do, where we work, and why it matters.
-	                </Typography>
-	                <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
-	                  Clear essentials first: a short story, a clear mission, and a practical model you can verify.
-	                </Typography>
-	              </div>
-	            </Reveal>
+		        <Section id="overview" className="border-t border-foreground/10 scroll-mt-32" spacing="lg">
+		          <Container>
+		            <Reveal as="div" delay={0.02}>
+		              <div className="mx-auto max-w-6xl text-left">
+		                <Typography variant="caption" className="text-accent mb-4 block">
+		                  Overview
+		                </Typography>
+		                <Typography variant="h2" className="mb-4">
+		                  From Students to Changemakers
+		                </Typography>
+		                <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
+		                  {story.paragraphs.join(" ")}
+		                </Typography>
 
-		            <Reveal as="div" delay={0.06} y={12}>
-		              <article className="mt-12 mx-auto max-w-6xl">
-		                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-		                  <div className="lg:col-span-5">
-		                    <Typography variant="h3" className="m-0">
-		                      {story.title}
-	                    </Typography>
-	                  </div>
-
-		                  <div className="lg:col-span-7">
-		                    <Typography
-		                      as="p"
-		                      variant="body"
-		                      className="text-foreground max-w-[70ch]"
-		                    >
-		                      <span className="text-foreground">{story.paragraphs[0]} </span>
-		                      <span className="text-foreground/55">{story.paragraphs[1]}</span>
+		                <div className="mt-12 border-t border-foreground/10 pt-12">
+		                  <div className="flex items-center gap-3 mb-10">
+		                    <Typography variant="caption" className="text-muted-foreground whitespace-nowrap">
+		                      First steps
 		                    </Typography>
+		                    <div className="h-px flex-1 bg-foreground/10" />
 		                  </div>
-		                </div>
 
-	                <div className="mt-14 border-t border-foreground/10 pt-12">
-	                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 mx-auto max-w-6xl">
-	                    <div>
-	                      <div className="h-12 w-12 rounded-full border border-foreground/10 bg-background flex items-center justify-center mb-6">
-	                        <MapPin className="h-5 w-5 text-foreground/70" aria-hidden="true" />
-	                      </div>
+		                  <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
+		                    {story.firstStepsTitle}
+		                  </Typography>
+
+		                  <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+		                    <div>
 		                      <Typography variant="h5" className="m-0">
 		                        In Morocco
 		                      </Typography>
-		                      <Typography variant="body-sm" className="text-muted-foreground mt-3 max-w-[56ch]">
-		                        {story.firstStepsTitle}
-		                      </Typography>
-		                      <ul className="mt-6 space-y-3">
-	                        {story.firstSteps
-	                          .find((s) => s.location === "Morocco")
-	                          ?.bullets.map((bullet) => (
-	                            <li key={bullet} className="flex gap-3">
-	                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
-	                              <Typography variant="body-sm" className="text-muted-foreground m-0">
-	                                {bullet}
-	                              </Typography>
-	                            </li>
-	                          ))}
-	                      </ul>
-	                    </div>
+		                      <ul className="mt-6 space-y-4">
+		                        {story.firstSteps
+		                          .find((s) => s.location === "Morocco")
+		                          ?.bullets.map((bullet) => (
+		                            <li key={bullet} className="flex gap-3">
+		                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
+		                              <Typography variant="body" className="text-muted-foreground m-0">
+		                                {bullet}
+		                              </Typography>
+		                            </li>
+		                          ))}
+		                      </ul>
+		                    </div>
 
-	                    <div>
-	                      <div className="h-12 w-12 rounded-full border border-foreground/10 bg-background flex items-center justify-center mb-6">
-	                        <BookOpen className="h-5 w-5 text-foreground/70" aria-hidden="true" />
-	                      </div>
+		                    <div>
 		                      <Typography variant="h5" className="m-0">
 		                        In Bangladesh
 		                      </Typography>
-		                      <Typography variant="body-sm" className="text-muted-foreground mt-3 max-w-[56ch]">
-		                        {story.firstStepsTitle}
-		                      </Typography>
-		                      <ul className="mt-6 space-y-3">
-	                        {story.firstSteps
-	                          .find((s) => s.location === "Bangladesh")
-	                          ?.bullets.map((bullet) => (
-	                            <li key={bullet} className="flex gap-3">
-	                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
-	                              <Typography variant="body-sm" className="text-muted-foreground m-0">
-	                                {bullet}
-	                              </Typography>
-	                            </li>
-	                          ))}
-	                      </ul>
-	                    </div>
-	                  </div>
-	                </div>
-	              </article>
-	            </Reveal>
-	          </Container>
-	        </Section>
+		                      <ul className="mt-6 space-y-4">
+		                        {story.firstSteps
+		                          .find((s) => s.location === "Bangladesh")
+		                          ?.bullets.map((bullet) => (
+		                            <li key={bullet} className="flex gap-3">
+		                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
+		                              <Typography variant="body" className="text-muted-foreground m-0">
+		                                {bullet}
+		                              </Typography>
+		                            </li>
+		                          ))}
+		                      </ul>
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
+		            </Reveal>
+		          </Container>
+		        </Section>
 
 	      <Section id="mission" className="border-t border-foreground/10 scroll-mt-32 bg-background-soft" spacing="lg">
 	        <Container>
@@ -431,85 +454,57 @@ export default function AboutPage() {
 
 	      <Section id="team" className="border-t border-foreground/10 scroll-mt-32" spacing="lg">
 	        <Container>
-	          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 items-end">
-	            <div className="lg:col-span-6">
-	              <Reveal as="div" delay={0.02} y={12}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 items-end">
+            <div className="lg:col-span-12">
+              <Reveal as="div" delay={0.02} y={12}>
                 <Typography variant="caption" className="text-accent mb-4 block">
                   Team
                 </Typography>
-	                <Typography variant="h2" className="mb-4">
-	                  Meet our team
-	                </Typography>
-		                <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
-		                  The passionate change-makers behind Zwina Foundation.
-		                </Typography>
-	              </Reveal>
-	            </div>
-            <div className="lg:col-span-6 lg:flex lg:justify-end">
-              <Reveal as="div" delay={0.08}>
-                <Button variant="outline" asChild effect="none" className="shadow-none w-full lg:w-auto">
-                  <Link href="/contact" className="no-underline">
-                    Contact us
-                  </Link>
-                </Button>
-              </Reveal>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredTeam.map((person, idx) => (
-              <Reveal key={person.name} as="div" delay={0.03 + idx * 0.04} y={10}>
-                <div className="h-full border-t border-foreground/10 pt-6">
-                  <div className="flex items-start gap-4">
-                    <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-secondary border border-foreground/10">
-                      <Image src={person.imageSrc} alt={person.name} width={56} height={56} className="h-14 w-14 object-cover" />
-                    </div>
-                    <div className="min-w-0">
-                      <Typography variant="h6" className="m-0">
-                        {person.name}
-                      </Typography>
-                      <Typography variant="caption" className="text-accent mt-2 block">
-                        {person.role}
-                      </Typography>
-                      <Typography variant="body-sm" className="text-muted-foreground mt-2 m-0">
-                        {person.location}
-                      </Typography>
-                    </div>
-                  </div>
-                  <Typography variant="body-sm" className="text-muted-foreground mt-4 m-0">
-                    {person.bio}
-                  </Typography>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          {moreTeam.length > 0 && (
-            <div className="mt-10 border-t border-foreground/10 pt-8">
-              <Reveal as="div" delay={0.02} y={10}>
-                <Typography variant="h6" className="mb-4">
-                  Additional team
+                <Typography variant="h2" className="mb-4">
+                  Meet our team
+                </Typography>
+                <Typography variant="body" className="text-muted-foreground max-w-[70ch]">
+                  The passionate change-makers behind Zwina Foundation.
                 </Typography>
               </Reveal>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {moreTeam.map((person, idx) => (
-                  <Reveal key={person.name} as="div" delay={0.03 + idx * 0.04} y={8}>
-                    <div className="border-t border-foreground/10 pt-5">
-                      <Typography variant="h6" className="m-0">
-                        {person.name}
-                      </Typography>
-                      <Typography variant="caption" className="text-accent mt-2 block">
-                        {person.role} • {person.location}
-                      </Typography>
-                      <Typography variant="body-sm" className="text-muted-foreground mt-3 m-0">
-                        {person.bio}
-                      </Typography>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
             </div>
-          )}
+          </div>
+
+	          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-6">
+	            {displayedTeam.map((person) => (
+	              <div
+	                key={person.name}
+	                className="h-full overflow-hidden rounded-[var(--radius-lg)] border border-foreground/10 bg-background shadow-[0_22px_60px_-46px_rgba(0,0,0,0.28)]"
+	              >
+	                <div className="relative aspect-[1/1] bg-background overflow-hidden rounded-t-[10px]">
+	                  <Image
+	                    src={person.imageSrc}
+	                    alt={person.name}
+	                    fill
+	                    sizes="(min-width: 1536px) 240px, (min-width: 1024px) 22vw, (min-width: 768px) 30vw, 100vw"
+	                    className="object-cover object-top scale-[0.97] rounded-tl-[10px] rounded-tr-[10px]"
+	                  />
+	                </div>
+	                <div className="p-4">
+	                  <Typography variant="h6" className="m-0">
+	                    {person.name}
+	                  </Typography>
+	                  <Typography
+	                    variant="body-sm"
+	                    className="text-accent mt-3 font-semibold uppercase tracking-[0.22em] m-0"
+	                  >
+	                    {person.role}
+	                  </Typography>
+	                  <Typography variant="body-sm" className="text-muted-foreground mt-2 m-0">
+	                    {renderLocationWithFlags(person.location)}
+	                  </Typography>
+	                  <Typography variant="body" className="text-muted-foreground mt-5 m-0">
+	                    {person.bio}
+	                  </Typography>
+	                </div>
+	              </div>
+	            ))}
+	          </div>
 
           
         </Container>

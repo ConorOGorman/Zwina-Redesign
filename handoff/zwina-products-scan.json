@@ -1,0 +1,398 @@
+{
+  "start": 1,
+  "end": 20,
+  "results": [
+    {
+      "id": 1,
+      "url": "https://zwinafoundation.org/product/1",
+      "ok": true,
+      "title": "Desert Coat",
+      "price": "€140.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/933dbb93-fc90-4ca9-a1e2-8c92aa7a3350.png",
+          "alt": "Desert Coat"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/661a2617-3017-47ac-be31-2b12b319c946.png",
+          "alt": "Desert Coat view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/9de637b8-b1c0-4352-91e1-74dd5b310d04.png",
+          "alt": "Desert Coat view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "Inspired by the vast Sahara, this coat combines traditional craftsmanship with modern design. Features a beautiful cream fabric with navy blue geometric patterns. Each stitch tells a story of the women artisans who created it.",
+      "materials": "100% handwoven cotton with traditional indigo dye patterns and natural cream fabric",
+      "story": "This collection was created by the women's cooperative in Talat N'Minoun, where 23 women are learning entrepreneurial skills while preserving their cultural heritage.",
+      "care": "Hand wash in cold water with mild detergent. Lay flat to dry. Do not bleach or iron directly."
+    },
+    {
+      "id": 2,
+      "url": "https://zwinafoundation.org/product/2",
+      "ok": true,
+      "title": "African Coffee Coat",
+      "price": "€140.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/28663aee-52f7-4862-b3ef-a0a481709cc7.png",
+          "alt": "African Coffee Coat"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/f39ccf71-3fc5-487d-bcbe-4c84c54c7f68.png",
+          "alt": "African Coffee Coat view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/e2900753-34b9-4079-9875-47c646085195.png",
+          "alt": "African Coffee Coat view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "A celebration of North African coffee culture, this coat features hand-embroidered details inspired by traditional Moroccan cafes. The tan and navy blue color combination represents the earthy tones of coffee beans and the deep blue doors of Morocco.",
+      "materials": "Locally sourced organic cotton and handwoven fabric with traditional indigo blue trim",
+      "story": "Created by the women of the Talat N'Minoun collective, this piece represents their journey toward economic independence while preserving traditional weaving techniques.",
+      "care": "Hand wash cold. Do not tumble dry. Iron on low heat if necessary."
+    },
+    {
+      "id": 3,
+      "url": "https://zwinafoundation.org/product/3",
+      "ok": true,
+      "title": "Fez Bomber",
+      "price": "€160.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/9b800827-587f-49ba-9ec2-285346a73038.png",
+          "alt": "Fez Bomber"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/6efd0eba-9c45-42cb-90a4-cc05964d050c.png",
+          "alt": "Fez Bomber view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/f13f0430-fe7f-451b-8430-5f6137991491.png",
+          "alt": "Fez Bomber view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "A modern take on the traditional bomber jacket, featuring intricate orange geometric patterns inspired by the historic city of Fez. The vibrant orange panels contrast beautifully with the cream-colored sleeves.",
+      "materials": "Ethically-sourced cotton with handwoven panels featuring traditional Moroccan embroidery patterns",
+      "story": "This design came from a collaboration between the women artisans and local design students, bridging generations of craftsmanship. The geometric patterns are inspired by the famous Moroccan zellige tilework found in Fez.",
+      "care": "Dry clean only. Store in a cool, dry place. Hand wash with cold water if necessary."
+    },
+    {
+      "id": 4,
+      "url": "https://zwinafoundation.org/product/4",
+      "ok": true,
+      "title": "Moon Coat",
+      "price": "€210.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/9ef0f2b9-b507-4245-92fb-076bf64dc89a.png",
+          "alt": "Moon Coat"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/959eba8d-49d2-4e0a-8b7a-3ffa9e9b5a57.png",
+          "alt": "Moon Coat view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/9fe5cb5c-70ba-4363-aaef-82589da83968.png",
+          "alt": "Moon Coat view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "Named after the desert moon that illuminates artisans' work in the evenings, this coat combines elegance with traditional Moroccan motifs. Features a striking contrast of navy blue embroidery on cream fabric.",
+      "materials": "Handwoven cotton with traditional Moroccan embroidery techniques and natural dyes",
+      "story": "The Moon Coat represents a collective effort by the women of Talat N'Minoun to preserve ancient textile techniques while innovating for modern fashion. Each stitch is applied by hand using centuries-old patterns.",
+      "care": "Gentle hand wash with mild soap. Lay flat to dry. Store folded. Dry clean recommended for best preservation of embroidery work."
+    },
+    {
+      "id": 5,
+      "url": "https://zwinafoundation.org/product/5",
+      "ok": true,
+      "title": "A Walk in the Spring",
+      "price": "€250.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/9951fa04-9828-416c-83ef-16b37654a54a.png",
+          "alt": "A Walk in the Spring"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/59c87558-3e35-4efd-968f-d81143dd25f3.png",
+          "alt": "A Walk in the Spring view 1"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/5f1ceaf9-69d4-4e84-98f8-0a00108bdf15.png",
+          "alt": "A Walk in the Spring view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "A vibrant, embroidered jacket featuring colorful floral patterns against a coral background. The intricate hand-embroidered details in blue, yellow, green, and purple create a striking visual celebration of Morocco's brief but vibrant spring season.",
+      "materials": "100% organic cotton with natural dyes from local flowers and plants, featuring extensive hand embroidery work",
+      "story": "This piece was created during a workshop where elder artisans taught younger women traditional embroidery techniques, ensuring these skills pass to the next generation. Each flower pattern tells a story of renewal and hope.",
+      "care": "Hand wash cold with mild soap. Lay flat to dry in shade. Iron on low heat if necessary, with a cloth between the iron and embroidered areas to protect the delicate work."
+    },
+    {
+      "id": 6,
+      "url": "https://zwinafoundation.org/product/6",
+      "ok": true,
+      "title": "Blazer Agadir",
+      "price": "€140.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/86b89947-2ed9-4e74-855a-8621a0f83c92.png",
+          "alt": "Blazer Agadir"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/d1544b0b-cc63-49d9-adc5-189e9da37d5f.png",
+          "alt": "Blazer Agadir view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/94d8a363-ffa7-4830-ba7a-9be4067685d6.png",
+          "alt": "Blazer Agadir view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "A contemporary blazer with subtle nods to traditional Amazigh patterns. This white jacket features colorful embroidered designs in pink, blue, yellow, and orange - perfect for making a statement while celebrating traditional craftsmanship.",
+      "materials": "100% organic cotton with hand-embroidered details using traditional Moroccan techniques and natural-dyed threads",
+      "story": "This jacket represents the revival of traditional embroidery techniques in a contemporary silhouette. Each stitch is carefully placed by the women artisans of Talat N'Minoun, combining their cultural heritage with modern fashion sensibilities.",
+      "care": "Hand wash cold with mild soap. Lay flat to dry. Iron on low heat if necessary, with a cloth between the iron and embroidered areas to protect the delicate work."
+    },
+    {
+      "id": 7,
+      "url": "https://zwinafoundation.org/product/7",
+      "ok": true,
+      "title": "Essauria Jacket",
+      "price": "€140.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/bb3cca5c-e463-4f5d-9ce5-41f7a844cce0.png",
+          "alt": "Essauria Jacket"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/e0b59eff-0bf8-44d4-aa8e-7044df182c9e.png",
+          "alt": "Essauria Jacket view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/e742ca80-f7fc-44fb-b9d6-9d3036a46e27.png",
+          "alt": "Essauria Jacket view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "A stunning handwoven jacket with colorful geometric Amazigh patterns in red, orange, blue, and yellow on a cream background. Features a stylish mandarin collar and traditional craftsmanship that showcases Morocco's rich textile heritage.",
+      "materials": "100% handwoven cotton with traditional Amazigh patterns and natural dyes",
+      "story": "Created by master weavers from the coastal town of Essauria, this jacket represents generations of artistic tradition. Each geometric pattern tells a story of Moroccan heritage, with colors derived from local plant-based dyes.",
+      "care": "Hand wash cold with mild soap. Lay flat to dry. Do not wring."
+    },
+    {
+      "id": 8,
+      "url": "https://zwinafoundation.org/product/8",
+      "ok": true,
+      "title": "Lino Outfit",
+      "price": "€70.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/54722a7b-f292-4ea0-8e2a-cf0142f53017.png",
+          "alt": "Lino Outfit"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/be5f7de5-71d4-4252-8f8b-32a3b8efd201.png",
+          "alt": "Lino Outfit view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/1ce226be-5840-473c-a6d0-daa032065378.png",
+          "alt": "Lino Outfit view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "A comfortable yet elegant linen outfit perfect for Morocco's warm climate. The set includes a loose-fitting shirt with traditional collar and drawstring pants, all made from 100% natural linen for ultimate breathability and comfort.",
+      "materials": "100% handwoven natural linen from locally sourced fibers",
+      "story": "This outfit celebrates the revival of linen cultivation in the region, a practice that had nearly disappeared before the women's cooperative revitalized it. Each garment is handcrafted using traditional techniques passed down through generations.",
+      "care": "Hand wash in cold water with mild detergent. Lay flat to dry. Iron while slightly damp for best results. Natural wrinkles are characteristic of linen and part of its charm."
+    },
+    {
+      "id": 9,
+      "url": "https://zwinafoundation.org/product/9",
+      "ok": true,
+      "title": "Blazer Ourzazate",
+      "price": "€180.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/93d1281c-9388-4f05-9b03-0fff1debdd03.png",
+          "alt": "Blazer Ourzazate"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/d1dd43ea-acad-4381-8f33-669373f9dc08.png",
+          "alt": "Blazer Ourzazate view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/2f696238-4614-408c-8630-74cbd9a2b01d.png",
+          "alt": "Blazer Ourzazate view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "A stunning embroidered blazer showcasing vibrant colors and traditional Moroccan craftsmanship. This eye-catching red jacket features intricate multicolored embroidery with geometric patterns and floral motifs, making it a true statement piece that celebrates Morocco's rich textile heritage.",
+      "materials": "Handcrafted cotton with extensive hand embroidery using traditional techniques and colorful threads. Each jacket takes approximately 3 weeks to complete.",
+      "story": "This vibrant blazer was created by women artisans in Ouarzazate, a city known as the gateway to the Sahara Desert. The stunning embroidery patterns represent traditional symbols of prosperity and protection, passed down through generations. The vivid red base color is achieved using natural dyes from local plants.",
+      "care": "Hand wash cold with mild detergent. Lay flat to dry. Do not wring. Iron on low heat if necessary, with a cloth between the iron and embroidery to protect the delicate work."
+    },
+    {
+      "id": 10,
+      "url": "https://zwinafoundation.org/product/10",
+      "ok": true,
+      "title": "Pants Taghazut",
+      "price": "€35.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/faea111a-965e-4fb9-b073-bbe2ff362879.png",
+          "alt": "Pants Taghazut"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/0d387356-4d05-4fac-8785-ff2b4a412ca0.png",
+          "alt": "Pants Taghazut view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "Named after Morocco's famous surfing village, these relaxed yet stylish striped linen pants combine comfort with artisanal details. The lightweight fabric and elastic waistband make them perfect for both beachside walks and casual outings in warm weather.",
+      "materials": "Breathable organic cotton with natural indigo and white stripes in a traditional Moroccan pattern",
+      "story": "Designed in collaboration with local surfers to create the perfect post-surf wear that celebrates both ocean culture and traditional craftsmanship. Each pair is handmade by women artisans using techniques passed down through generations.",
+      "care": "Hand wash cold. Hang to dry. The fabric may fade slightly over time, giving each piece a unique, lived-in character."
+    },
+    {
+      "id": 11,
+      "url": "https://zwinafoundation.org/product/11",
+      "ok": true,
+      "title": "Salopette Marrakesh",
+      "price": "€210.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/0f4bda6e-e445-4494-821b-62a238fee766.png",
+          "alt": "Salopette Marrakesh"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/ef5a2ca0-574e-4325-ad8d-9ed16a5fb3a7.png",
+          "alt": "Salopette Marrakesh view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/0e3cc6d0-b500-4b48-a2f2-7a5e9c41904e.png",
+          "alt": "Salopette Marrakesh view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "A vibrant, embroidered navy blue overalls featuring colorful hand-stitched Amazigh symbols and patterns. These unique salopettes combine traditional Moroccan craftsmanship with comfortable modern design, perfect for making a bold artistic statement.",
+      "materials": "100% cotton with traditional hand embroidery using colorful threads in pink, green, yellow, and orange. Features adjustable straps and convenient side pockets.",
+      "story": "Created by the women's collective of Marrakesh, these overalls represent the revival of traditional Amazigh embroidery techniques. Each symbol tells a story from Moroccan folklore, and no two pieces are exactly alike. The vibrant embroidery against the deep blue fabric represents the contrast between the night sky and stars over the Sahara.",
+      "care": "Hand wash cold with mild detergent. Lay flat to dry. Do not bleach or iron directly over embroidery to preserve the intricate needlework."
+    },
+    {
+      "id": 12,
+      "url": "https://zwinafoundation.org/product/12",
+      "ok": true,
+      "title": "Jacket Safi",
+      "price": "€120.00",
+      "images": [
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/167e52cc-3eb5-4063-bbcc-302192613685.png",
+          "alt": "Jacket Safi"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/6a402705-61c1-4f5e-915e-d9c15b0e853d.png",
+          "alt": "Jacket Safi view 2"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/e7dc0c74-d9d9-49ee-9573-79ac383ae0bb.png",
+          "alt": "Jacket Safi view 3"
+        },
+        {
+          "src": "https://zwinafoundation.org/lovable-uploads/8f6330a5-44cf-4fea-9c77-4485ddce0123.png",
+          "alt": "Zwina Foundation Logo"
+        }
+      ],
+      "description": "A stunning handwoven jacket featuring vibrant red fabric with intricate Amazigh geometric patterns in green, orange, white, and black. This authentic piece combines traditional Moroccan textile art with comfortable modern styling - perfect for making a bold cultural statement.",
+      "materials": "Handwoven cotton with traditional Moroccan Amazigh patterns and natural plant-based dyes",
+      "story": "Created by the master weavers of Safi, this jacket represents generations of artistic tradition passed down through families. The geometric diamond patterns tell stories of tribal identity and cultural heritage, with each motif carrying symbolic meaning. The vibrant red base color symbolizes strength and vitality in Amazigh culture.",
+      "care": "Hand wash cold with mild soap. Lay flat to dry. Do not bleach. Iron on low heat if necessary."
+    },
+    {
+      "id": 13,
+      "url": "https://zwinafoundation.org/product/13",
+      "ok": false,
+      "reason": "no-title"
+    },
+    {
+      "id": 14,
+      "url": "https://zwinafoundation.org/product/14",
+      "ok": false,
+      "reason": "no-title"
+    },
+    {
+      "id": 15,
+      "url": "https://zwinafoundation.org/product/15",
+      "ok": false,
+      "reason": "no-title"
+    },
+    {
+      "id": 16,
+      "url": "https://zwinafoundation.org/product/16",
+      "ok": false,
+      "reason": "no-title"
+    },
+    {
+      "id": 17,
+      "url": "https://zwinafoundation.org/product/17",
+      "ok": false,
+      "reason": "no-title"
+    },
+    {
+      "id": 18,
+      "url": "https://zwinafoundation.org/product/18",
+      "ok": false,
+      "reason": "no-title"
+    },
+    {
+      "id": 19,
+      "url": "https://zwinafoundation.org/product/19",
+      "ok": false,
+      "reason": "no-title"
+    },
+    {
+      "id": 20,
+      "url": "https://zwinafoundation.org/product/20",
+      "ok": false,
+      "reason": "no-title"
+    }
+  ]
+}

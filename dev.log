@@ -1,0 +1,20 @@
+
+> zwina-clone@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.1.0
+   - Local:        http://localhost:3000
+
+ ✓ Ready in 1433ms
+ ○ Compiling /projects/bangladesh-english ...
+ ✓ Compiled /projects/bangladesh-english in 4.3s (610 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 4s (605 modules)
+ ✓ Compiled in 2.1s (605 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 579ms (595 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: incorrect header check
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/conorogorman/Documents/LucidStudio's /Zwina Redesign/.next/cache/webpack/server-development/0.pack.gz_' -> '/Users/conorogorman/Documents/LucidStudio's /Zwina Redesign/.next/cache/webpack/server-development/0.pack.gz'
+ ✓ Compiled in 2.5s (1320 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 1536ms (605 modules)

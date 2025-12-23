@@ -1,0 +1,150 @@
+{
+  "url": "https://zwinafoundation.org/shop",
+  "extractedAt": "2025-12-21T00:13:32.277Z",
+  "products": [
+    {
+      "title": "Jacket Safi",
+      "price": "€120.00",
+      "href": "https://zwinafoundation.org/",
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/167e52cc-3eb5-4063-bbcc-302192613685.png",
+        "alt": "Jacket Safi"
+      },
+      "detail": {
+        "title": "Empowering Communities& Inspiring Generations",
+        "paragraphs": [
+          "From students to changemakers, Zwina Foundation empowers youth and local communities to create lasting impact through social entrepreneurship, education, and grassroots action.",
+          "Zwina Foundation began as a group of students in the Netherlands who decided not to wait for the perfect moment to create impact—we simply started. Today, we are a youth-led organization empowering communities worldwide to turn challenges into opportunities.",
+          "Students and young professionals driving change in their communities",
+          "Local solutions created with and by the communities we serve",
+          "Grassroots action creating lasting change across continents"
+        ],
+        "bullets": [
+          "Our Story",
+          "Team",
+          "Impact",
+          "Partners",
+          "Sewing Hope",
+          "Upcoming Initiatives",
+          "Volunteer",
+          "Donate",
+          "Contact",
+          "Shop",
+          "Privacy Policy",
+          "Terms of Service"
+        ],
+        "whatsapp": "https://wa.me/393493804960"
+      }
+    },
+    {
+      "title": "Essauria Jacket",
+      "price": "€140.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/bb3cca5c-e463-4f5d-9ce5-41f7a844cce0.png",
+        "alt": "Essauria Jacket"
+      },
+      "detail": null
+    },
+    {
+      "title": "Blazer Agadir",
+      "price": "€140.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/86b89947-2ed9-4e74-855a-8621a0f83c92.png",
+        "alt": "Blazer Agadir"
+      },
+      "detail": null
+    },
+    {
+      "title": "Blazer Ourzazate",
+      "price": "€180.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/93d1281c-9388-4f05-9b03-0fff1debdd03.png",
+        "alt": "Blazer Ourzazate"
+      },
+      "detail": null
+    },
+    {
+      "title": "Desert Coat",
+      "price": "€140.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/933dbb93-fc90-4ca9-a1e2-8c92aa7a3350.png",
+        "alt": "Desert Coat"
+      },
+      "detail": null
+    },
+    {
+      "title": "African Coffee Coat",
+      "price": "€140.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/28663aee-52f7-4862-b3ef-a0a481709cc7.png",
+        "alt": "African Coffee Coat"
+      },
+      "detail": null
+    },
+    {
+      "title": "Fez Bomber",
+      "price": "€160.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/9b800827-587f-49ba-9ec2-285346a73038.png",
+        "alt": "Fez Bomber"
+      },
+      "detail": null
+    },
+    {
+      "title": "Moon Coat",
+      "price": "€210.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/9ef0f2b9-b507-4245-92fb-076bf64dc89a.png",
+        "alt": "Moon Coat"
+      },
+      "detail": null
+    },
+    {
+      "title": "A Walk in the Spring",
+      "price": "€250.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/59c87558-3e35-4efd-968f-d81143dd25f3.png",
+        "alt": "A Walk in the Spring"
+      },
+      "detail": null
+    },
+    {
+      "title": "Pants Taghazut",
+      "price": "€35.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/faea111a-965e-4fb9-b073-bbe2ff362879.png",
+        "alt": "Pants Taghazut"
+      },
+      "detail": null
+    },
+    {
+      "title": "Salopette Marrakesh",
+      "price": "€210.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/0f4bda6e-e445-4494-821b-62a238fee766.png",
+        "alt": "Salopette Marrakesh"
+      },
+      "detail": null
+    },
+    {
+      "title": "Lino Outfit",
+      "price": "€70.00",
+      "href": null,
+      "image": {
+        "src": "https://zwinafoundation.org/lovable-uploads/54722a7b-f292-4ea0-8e2a-cf0142f53017.png",
+        "alt": "Lino Outfit"
+      },
+      "detail": null
+    }
+  ]
+}

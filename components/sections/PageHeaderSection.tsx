@@ -10,6 +10,7 @@ interface PageHeaderProps {
   align?: "center" | "left";
   titleClassName?: string;
   descriptionClassName?: string;
+  containerClassName?: string;
   className?: string;
 }
 
@@ -19,13 +20,14 @@ export const PageHeaderSection: React.FC<PageHeaderProps> = ({
   align = "center",
   titleClassName,
   descriptionClassName,
+  containerClassName,
   className,
 }) => {
   const isLeft = align === "left";
 
   return (
     <Section className={cn("bg-surface border-b", className)}>
-      <Container className={cn(isLeft ? "text-left" : "text-center")}>
+      <Container className={cn(isLeft ? "text-left" : "text-center", containerClassName)}>
         <Typography variant="h1" className={cn("mb-4", titleClassName)}>
           {title}
         </Typography>
