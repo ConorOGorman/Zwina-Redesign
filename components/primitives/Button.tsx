@@ -82,13 +82,13 @@ export const Button: React.FC<ButtonProps> = ({
 
     const mergedOnMouseMove: React.MouseEventHandler<HTMLElement> = (e) => {
       childProps.onMouseMove?.(e);
-      props.onMouseMove?.(e);
+      props.onMouseMove?.(e as React.MouseEvent<HTMLButtonElement>);
       handlePointerMove(e);
     };
 
     const mergedOnMouseLeave: React.MouseEventHandler<HTMLElement> = (e) => {
       childProps.onMouseLeave?.(e);
-      props.onMouseLeave?.(e);
+      props.onMouseLeave?.(e as React.MouseEvent<HTMLButtonElement>);
       handlePointerLeave(e);
     };
 
