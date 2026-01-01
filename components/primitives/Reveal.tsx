@@ -35,7 +35,7 @@ export function Reveal({
   const isInView = useInView(ref, { once, amount });
 
   if (prefersReducedMotion) {
-    const Tag = as as any;
+    const Tag = as as React.ElementType;
     return (
       <Tag ref={ref} className={className}>
         {children}
@@ -43,7 +43,7 @@ export function Reveal({
     );
   }
 
-  const MotionTag = ((motion as any)[as] ?? motion.div) as any;
+  const MotionTag = (motion[as as keyof typeof motion] ?? motion.div) as React.ElementType;
 
   return (
     <MotionTag

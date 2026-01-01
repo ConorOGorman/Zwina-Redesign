@@ -52,7 +52,7 @@ export function ScrollFillText({
 
   if (prefersReducedMotion) {
     return (
-      <Component ref={ref as any} className={cn(className, fillClassName)}>
+      <Component ref={ref as React.Ref<HTMLElement>} className={cn(className, fillClassName)}>
         {text}
       </Component>
     );
@@ -68,7 +68,7 @@ export function ScrollFillText({
   let charIndex = 0;
 
   return (
-    <Component ref={ref as any} className={cn("flex flex-wrap", className)}>
+    <Component ref={ref as React.Ref<HTMLElement>} className={cn("flex flex-wrap", className)}>
       <span aria-hidden className="contents">
         {words.map((word, wordIdx) => {
           return (

@@ -20,7 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
   asChild = false,
   ...props
 }) => {
-  const handlePointerMove: React.MouseEventHandler<any> = (e) => {
+  const handlePointerMove: React.MouseEventHandler<HTMLElement> = (e) => {
     const el = e.currentTarget as HTMLElement;
     const rect = el.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -29,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
     el.style.setProperty("--btn-y", `${Math.max(0, Math.min(100, y))}%`);
   };
 
-  const handlePointerLeave: React.MouseEventHandler<any> = (e) => {
+  const handlePointerLeave: React.MouseEventHandler<HTMLElement> = (e) => {
     const el = e.currentTarget as HTMLElement;
     el.style.setProperty("--btn-x", "50%");
     el.style.setProperty("--btn-y", "50%");
@@ -78,21 +78,21 @@ export const Button: React.FC<ButtonProps> = ({
   const classes = cn(baseStyles, effectStyles[effect], variants[variant], sizes[size], className);
 
   if (asChild && React.isValidElement(children)) {
-    const childProps = (children as React.ReactElement<any>).props;
+    const childProps = (children as React.ReactElement<React.HTMLAttributes<HTMLElement>>).props;
 
-    const mergedOnMouseMove: React.MouseEventHandler<any> = (e) => {
+    const mergedOnMouseMove: React.MouseEventHandler<HTMLElement> = (e) => {
       childProps.onMouseMove?.(e);
       props.onMouseMove?.(e);
       handlePointerMove(e);
     };
 
-    const mergedOnMouseLeave: React.MouseEventHandler<any> = (e) => {
+    const mergedOnMouseLeave: React.MouseEventHandler<HTMLElement> = (e) => {
       childProps.onMouseLeave?.(e);
       props.onMouseLeave?.(e);
       handlePointerLeave(e);
     };
 
-    return React.cloneElement(children as React.ReactElement<any>, {
+    return React.cloneElement(children as React.ReactElement<React.HTMLAttributes<HTMLElement>>, {
       className: cn(classes, children.props.className),
       ...props,
       onMouseMove: mergedOnMouseMove,
