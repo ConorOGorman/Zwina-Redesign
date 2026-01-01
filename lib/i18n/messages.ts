@@ -74,6 +74,7 @@ export const MESSAGES: Record<Locale, Messages> = {
       stayConnected: "Stay connected.",
       newsletterBlurb: "Subscribe to our newsletter for updates on projects, impact stories, and ways to get involved.",
       emailPlaceholder: "Enter your email",
+      emailLabel: "Email address",
       subscribe: "Subscribe",
       about: "About",
       projects: "Projects",
@@ -222,6 +223,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     },
     shop: {
       all: "All",
+      backToAllProducts: "Back to all products",
       heroTag: "Shop",
       heroTitle: "This is not a collection.",
       heroBody:
@@ -497,6 +499,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     },
     shop: {
       all: "Alle",
+      backToAllProducts: "Terug naar alle producten",
       heroTag: "Shop",
       heroTitle: "Dit is geen collectie.",
       heroBody:
@@ -772,6 +775,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     },
     shop: {
       all: "Todos",
+      backToAllProducts: "Volver a todos los productos",
       heroTag: "Tienda",
       heroTitle: "Esto no es una colección.",
       heroBody:
@@ -995,6 +999,7 @@ export const MESSAGES: Record<Locale, Messages> = {
       stayConnected: "Stay connected.",
       newsletterBlurb: "Subscribe to our newsletter for updates on projects, impact stories, and ways to get involved.",
       emailPlaceholder: "Enter your email",
+      emailLabel: "Email address",
       subscribe: "Subscribe",
       about: "About",
       projects: "Projects",
@@ -1143,6 +1148,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     },
     shop: {
       all: "All",
+      backToAllProducts: "Back to all products",
       heroTag: "Shop",
       heroTitle: "This is not a collection.",
       heroBody:
